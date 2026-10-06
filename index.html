@@ -243,7 +243,7 @@ function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a
 // does not override falls back to W1. Per-entity identity colours stay in their registries (ET/CARDS/EVOS/WIRES); THEME[w].ent recolours returning
 // enemies by ET id. Cosmetic palettes (PALETTES/WSHOP) are world-independent (palette guard).
 const THEME_W1={grid0:'#5064dc',orbHit:'#ffe14a',orbLen:'#4d8bff',orbHp:'#4dff9a',alarm:'#ff0020',amber:'#ffb35c',arena:'#070714',bg:'#04040b',bg2:'#04040c',black:'#000000',bolt:'#c070ff',boss:'#ff4dff',bossPale:'#ff9aff',bossText:'#ffd0ff',bulwark:'#ff8a2a',cinch:'#fff3c0',cream:'#ffe9b0',cyan:'#3ef0ff',danger:'#ff4a5a',dim:'#8d96bd',echo:'#dcdcff',flash:'#bff8ff',ghost:'#e0b0ff',gold:'#ffd23f',goldPale:'#ffe9a8',heal:'#4dff9a',lime:'#c8ff3a',mint:'#ccffee',panel:'#06060e',pink:'#ff3fa4',sumBg:'#1e1446',text:'#e8f0ff',thin:'#ff8a4a',uiBlue:'#3ea8ff',uiDeep:'#0b0b1c',uiDim:'#8fa3cc',uiPurple:'#c35bff',uiText:'#cfd8f6',violet:'#b06bff',white:'#ffffff',x02020a:'#02020a',x05050c:'#05050c',x0a0c1e:'#0a0c1e',x0b0b1a:'#0b0b1a',x0c0e20:'#0c0e20',x0e0e1e:'#0e0e1e',x0e1028:'#0e1028',x141000:'#141000',x141028:'#141028',x14183c:'#14183c',x1a1240:'#1a1240',x1c1240:'#1c1240',x1e0008:'#1e0008',x1e000a:'#1e000a',x281e00:'#281e00',x28326e:'#28326e',x2a0630:'#2a0630',x3c2d00:'#3c2d00',x3dff8f:'#3dff8f',x460046:'#460046',x46370a:'#46370a',x465ac8:'#465ac8',x5064dc:'#5064dc',x555566:'#555566',x5a4600:'#5a4600',x5ad8ff:'#5ad8ff',x5ff8ff:'#5ff8ff',x78a0ff:'#78a0ff',x7a5a00:'#7a5a00',x7a8cff:'#7a8cff',x7aa8ff:'#7aa8ff',x7cc4ff:'#7cc4ff',x9999aa:'#9999aa',x99ffff:'#99ffff',x9fb3d9:'#9fb3d9',xa0faff:'#a0faff',xb0ffd0:'#b0ffd0',xc8dcff:'#c8dcff',xc8f0ff:'#c8f0ff',xc9b6ff:'#c9b6ff',xc9d2f5:'#c9d2f5',xd07bff:'#d07bff',xd0ffff:'#d0ffff',xdba2ff:'#dba2ff',xff1030:'#ff1030',xff2040:'#ff2040',xff2850:'#ff2850',xff5a6e:'#ff5a6e',xff6a7a:'#ff6a7a',xff88ff:'#ff88ff',xff9a4a:'#ff9a4a',xffb0b0:'#ffb0b0',xffb0b8:'#ffb0b8',xffb0ff:'#ffb0ff',xffd0d6:'#ffd0d6',xffe0e8:'#ffe0e8',xffe14a:'#ffe14a',xfff0b4:'#fff0b4',xfff0c8:'#fff0c8'};
-const THEME_W2={grid0:'#ffd86b',bg:'#1f150a',arena:'#2b1d0e',gold:'#7fd6ff',goldPale:'#f4fbff',danger:'#ff3d8b',thin:'#a99cc8',cyan:'#fff1cc',white:'#fffaf0',text:'#fff1cc',uiText:'#fff1cc',heal:'#ffd86b',boss:'#e8b8ff',bossPale:'#e8b8ff',pink:'#e8b8ff',bolt:'#ff3d8b',flash:'#fff6dc',ghost:'#e8b8ff',heatViolet:'#fff0a8',
+const THEME_W2={grid0:'#ffd86b',orbHit:'#ffd86b',orbLen:'#7fd6ff',orbHp:'#9fd08a',bg:'#1f150a',arena:'#2b1d0e',gold:'#7fd6ff',goldPale:'#f4fbff',danger:'#ff3d8b',thin:'#a99cc8',cyan:'#fff1cc',white:'#fffaf0',text:'#fff1cc',uiText:'#fff1cc',heal:'#ffd86b',boss:'#e8b8ff',bossPale:'#e8b8ff',pink:'#e8b8ff',bolt:'#ff3d8b',flash:'#fff6dc',ghost:'#e8b8ff',heatViolet:'#fff0a8',
   /* WP-C: UI chrome 'cream on cocoa' (navy -> cocoa, blue accents -> cream/honey, gold -> Sky reward, reds -> Thorn family) */alarm:'#ff006a',bg2:'#0c0804',black:'#000000',cinch:'#c2ebfd',cream:'#b2e7fd',dim:'#e6d3a4',echo:'#fdf5de',panel:'#0e0a06',sumBg:'#442f17',uiBlue:'#f8d877',uiDeep:'#1c140b',uiDim:'#e0cfa8',violet:'#f8d877',x02020a:'#090603',x05050c:'#0c0905',x0a0c1e:'#1e150a',x0b0b1a:'#1a130b',x0c0e20:'#20170c',x0e0e1e:'#1e170e',x0e1028:'#281c0e',x141000:'#010e13',x141028:'#281d10',x14183c:'#3c2914',x1a1240:'#3d2a14',x1c1240:'#3d2a14',x281e00:'#011c27',x28326e:'#6e4d28',x3c2d00:'#02293a',x46370a:'#0a3446',x465ac8:'#decb91',x5064dc:'#e7cf88',x555566:'#715f4a',x5a4600:'#023e58',x5ad8ff:'#f8d877',x5ff8ff:'#f8d877',x78a0ff:'#f8da7f',x7a5a00:'#035477',x7a8cff:'#f8da81',x7aa8ff:'#f8da81',x7cc4ff:'#f8db83',x9999aa:'#d9c08c',x99ffff:'#fae39e',x9fb3d9:'#e8d8ae',xa0faff:'#fae5a5',xc8dcff:'#fcf0cb',xc8f0ff:'#fcf0cb',xc9b6ff:'#fbebba',xc9d2f5:'#f5eac9',xd0ffff:'#fdf2d2',xff1030:'#ff1074',xff2040:'#ff207d',xff2850:'#ff2882',xff5a6e:'#ff5a9f',xff6a7a:'#ff6aa8',xffb0b0:'#ffb0d1',xffb0b8:'#ffb0d1',xffd0d6:'#ffd0e4',xffe0e8:'#ffe0ed',xffe14a:'#4fc7fa',xfff0b4:'#b6e8fd',xfff0c8:'#c9eefe'};
 const THEME={1:{id:1,name:'THE GRID',hazards:['danger','thin','bulwark','alarm'],music:'grid',c:THEME_W1,heat:null,heatA:0.14,gridA:0.12,ent:{}},
   2:{id:2,name:'HEARTHGLOW',hazards:['danger', 'thin', 'bolt', 'alarm', 'xff1030', 'xff2040', 'xff2850', 'xff5a6e', 'xff6a7a', 'xffb0b0', 'xffb0b8', 'xffd0d6', 'xffe0e8'],music:'hearth',c:Object.assign({},THEME_W1,THEME_W2),heat:[[0,'#ffd86b'],[90,'#fff0a8'],[150,'#e8b8ff']],heatA:0.12,gridA:0.10,ent:{mote:'#ffc9a0',dart:'#ffe9a0',snipper:'#ff3d8b',bulwark:'#b8a070',echo:'#fff1cc'}}};
@@ -595,14 +595,15 @@ const CARD_BY={};CARDS.forEach(c=>CARD_BY[c.id]=c);
 const ORBS=[{id:'hit',w:'HARDER',d:'Loops hit harder',ic:'o_hit',role:'orbHit'},{id:'len',w:'LONGER',d:'Longer wire',ic:'o_len',role:'orbLen'},{id:'hp',w:'TOUGHER',d:'More HP, and it heals you',ic:'o_hp',role:'orbHp'}];
 const ORB_BY={};ORBS.forEach(o=>ORB_BY[o.id]=o);
 const ORB_MAX=4,ORB_HIT_D=0.10,ORB_LEN=60,ORB_HP=8,ORB_HP_HEAL=10,ORB_EVO_AT=4,ORB_BIG_P=0.06;   // owner balance decision (DESIGN §28): weaker colours, evolutions at 4/4; no Lucky shop modifier (big = flat ORB_BIG_P)
-const ORB_EXTRA={1:{hit:{},len:{},hp:{}}};   // side effects as hidden card levels keyed by the colour level reached (the spec's table gave Live Wire +2 at HARDER 3, etc.); World 1's table is empty by owner decision (the spec's table made colours far too strong; DESIGN §28)
-const ORB_EVO={1:[['tesla','hit','len'],['novafence','hit','hp'],['kaleido','len','hp'],['singularity','*']]};
-const ORB_IMP={hit:['hit','live'],len:['implode'],hp:['hp','recovery','static']};
+const ORB_EXTRA={1:{hit:{},len:{},hp:{}},2:{hit:{2:[['snug',1]],3:[['snug',1],['live',1]],4:[['live',2]]},len:{2:[['honey',1]],3:[['honey',1],['tensile',1]],4:[['honey',1],['implode',1]]},hp:{2:[['warm',1]],3:[['warm',1]],4:[['warm',1],['hush',1]]}}};   // side effects as hidden card levels keyed by the colour level reached (the spec's table gave Live Wire +2 at HARDER 3, etc.); World 1's table is empty by owner decision (the spec's table made colours far too strong; DESIGN §28)
+const ORB_HP_HEAL_W2=0;   // r13 LOOP-4: World 2's TOUGHER heals nothing on take (W1: ORB_HP_HEAL). A W2-only constant: with World 2's contact damage that free heal on every level-up was the colour model's whole extra power (expert Duskwing reach 29% -> 64%); World 2's TOUGHER heals through Warm Hands instead (ORB_EXTRA[2], DESIGN §28.8)
+const ORB_EVO={1:[['tesla','hit','len'],['novafence','hit','hp'],['kaleido','len','hp'],['singularity','*']],2:[['honeycomb','hit','len'],['slumber','hit','hp'],['kaleido','len','hp'],['singularity','*']]};   // r13 LOOP-4: World 2 is on the same three colours; its identity lives in which W2 cards a colour level grants (ORB_EXTRA[2]: Snug, Honey Trail, Warm Hands, Hush) and in its evolution pairs
+const ORB_IMP={1:{hit:['hit','live'],len:['implode'],hp:['hp','recovery','static']},2:{hit:['hit','live','snug'],len:['implode','honey','tensile'],hp:['hp','recovery','static','warm','hush']}};   // per world: which impact ids a colour's 'This run:' line sums (LOOP-4: World 2 adds its side-effect cards)
 /* r13 LOOP-2: power orbs in the arena (World 1). A level-up drops one orb per non-max colour in a fan above the Core; the orb you loop is yours; ORB_LIFE s later the lowest colour applies itself. Gifts (fx) are visual only. */
 const ORB_LIFE=8,ORB_LIFE_TUT=16,ORB_BLINK=2,ORB_R0=140,ORB_RJ=25,ORB_SPREAD=1.4,ORB_JIT=0.5,ORB_TRIES=6,ORB_WALL=45,ORB_CLEAR=36,ORB_GAP=130,ORB_BOSS=60,ORB_GAP_T=0.6,ORB_R=11,ORB_FX_N=8;
 const ORBP=[];for(let i=0;i<ORB_FX_N;i++)ORBP.push({on:false,id:'hit',x:0,y:0,big:false,t:0,fx:false,sx:0,sy:0});
 const ORB_PT=[0,0],ORB_SPR={};
-const orbsOn=()=>!!R&&R.world===1;   // which impact ids a colour's 'This run:' line sums
+const orbsOn=()=>!!R;   /* r13 LOOP-4: both worlds drop power orbs (World 2 had the card overlay until LOOP-4) */
 const EVOS=[
  {id:'tesla',a:'live',b:'long',n:'TESLA LINE',col:'#ffe14a',d:'Your wire arcs lightning at nearby enemies (10 dmg every 0.2s)'},
  {id:'singularity',a:'snap',b:'implode',n:'SINGULARITY KNOT',col:'#b06bff',d:'Loops spawn a 1s vortex, then hit 3× damage'},
@@ -634,7 +635,7 @@ const shopCost=(it,l)=>Math.floor(it.base*Math.pow(1.6,l));
 const W2_HP=3.2,W2_DMG=1.8,W2_SPAWN=2.8,W2_XP=1.7,W2_SPD=1.05,W2_SHARD=1.2,W2_UNLOCK_FRAC=1.0;   // W2 balance pass (sim, full W1 shop; spec v0.1 was HP 1.40 / DMG 1.30 / SPAWN 1.25 / XP 1.35): Mote/Dart 4->7
 // HEARTH shop (WORLD2.md §6): cost base*1.6^lvl, total 18,372 diamonds (W2 balance pass: bases x1.75 so World 2 completes around run 80; spec v0.1 total 10,500). WP-C builds the UI; levels live in save.w2.shop.
 const W2_SHOP=[{id:'warmth',n:'Warmth',d:'+4% loop damage',max:5,base:245},{id:'quilt',n:'Quilt',d:'+25 max HP',max:3,base:350},{id:'spool',n:'Spool',d:'+8% thick-wire threshold',max:3,base:280},
- {id:'cocoa',n:'Cocoa',d:'Heal 2 per loop of 8+',max:3,base:315},{id:'blanket',n:'Blanket',d:'First Core hit each run is absorbed',max:1,base:1925},{id:'keepsake',n:'Keepsake',d:'Free pick of 3 commons at 0:05',max:1,base:3150},{id:'lamplighter',n:'Lamplighter',d:'+1 Duskwing lantern per phase',max:2,base:1750}];
+ {id:'cocoa',n:'Cocoa',d:'Heal 2 per loop of 8+',max:3,base:315},{id:'blanket',n:'Blanket',d:'First Core hit each run is absorbed',max:1,base:1925},{id:'keepsake',n:'Keepsake',d:'A free power orb at 0:05',max:1,base:3150},{id:'lamplighter',n:'Lamplighter',d:'+1 Duskwing lantern per phase',max:2,base:1750}];
 const w2ShopCost=(it,l)=>Math.floor(it.base*Math.pow(1.6,l));
 const W2_MODS=[{id:'firefly',n:'Firefly Day',d:'A Firefly Drift every 30s'},{id:'mothstorm',n:'Moth Storm',d:'Moths early and often'},{id:'steam',n:'Seed Day',d:'Dandelions from 0:30'}];   // WP-B: W2-only Daily modifiers; ids are valid save.w2.modBest keys
 // WP-B W2 Daily (WORLD2.md §6): seed hash('W2'+YYYYMMDD); the modifier rolls from this list (W1 rows reused by id: same rules); own best + modBest in save.w2, no streaks
@@ -913,7 +914,7 @@ function newRun(wireId,opts){opts=opts||{};const daily=!!opts.daily;const world=
     timeScale:1,lifted:true,liftT:0,hitstop:0,trauma:0,lvFlash:0,slowmo:0,
     fadeT:0,dashing:false,drawing:false,tx:AW/2,ty:L.AH*0.68,
     over:false,overT:0,victory:false,endDelay:1.4,
-    rerolls:1,wind:(sh.wind||0)>0,
+    rerolls:0/* r13 LOOP-4: no rerolls in either world (LOOP-5 deletes it) */,wind:(sh.wind||0)>0,
     banners:[],achNew:[],bossShards:0,
     vh:new Float32Array(8),vhI:0,speed:0,thinNow:false,catchUp:false,splits:[],catchN:-1,catchT:0,tsEff:1,staticT:0,teslaT:0,fidC:1,firstCut:true,firstLift:true,
     lastCapture:null,cutWhy:{},dmgDealt:0,minAreaHint:0,
@@ -989,12 +990,12 @@ function addCard(id,levels,ptsPer,silent){let c=R.cards[id];const def=CARD_BY[id
   const before=c.lvl;c.lvl=Math.min(def.max,c.lvl+levels);const gained=c.lvl-before;c.pts+=gained*ptsPer;
   if(id==='plating')R.core.hp+=CARD_PLATING_HP*gained;if(R.core)recalc();return gained;}
 function evoEligible(){const out=[];for(const ev of EVOS){if(R.evos[ev.id]||(ev.world&&ev.world!==R.world))continue;const a=CARD_BY[ev.a],b=CARD_BY[ev.b];const need=c=>c.max;if(lv(ev.a)>=need(a)&&lv(ev.b)>=need(b))out.push(ev);}return out;}
-function applyEvo(id,quiet){R.evos[id]=true;if(!quiet)SFX.evolution();const ev=EVO_BY[id];banner(ev.n,R.world===1?'':'EVOLUTION',TH.gold,2.2,true);
+function applyEvo(id,quiet){R.evos[id]=true;if(!quiet)SFX.evolution();const ev=EVO_BY[id];banner(ev.n,'',TH.gold,2.2,true);   /* r13: the name only, in both worlds (LOOP-4) */
   if(ev.world===2){save.w2.stats.evos[id]=1;}else if(!save.stats.evos[id]){save.stats.evos[id]=1;}unlockAch('evo');if(Object.keys(save.stats.evos).length>=4)unlockAch('evo4');recalc();}
 // r13 LOOP-1: gain colour levels (the headline stat lives in recalc; side effects are hidden card levels; evolutions follow automatically)
 function orbGain(id,n,src){const a=olv(id),b=Math.min(ORB_MAX,a+n);if(b<=a)return 0;R.olv[id]=b;const ex=(ORB_EXTRA[R.world]||ORB_EXTRA[1])[id]||{};
   for(let k=a+1;k<=b;k++)for(const [cid,m] of (ex[k]||[]))addCard(cid,m,1,true);
-  const h0=R.core.hp;recalc();if(id==='hp'){R.core.hp=Math.min(R.core.max,R.core.hp+ORB_HP_HEAL*(b-a));}impAdd(id,'h',Math.max(0,R.core.hp-h0));orbEvoCheck();return b-a;}
+  const h0=R.core.hp;recalc();if(id==='hp'){R.core.hp=Math.min(R.core.max,R.core.hp+(R.world===2?ORB_HP_HEAL_W2:ORB_HP_HEAL)*(b-a));}impAdd(id,'h',Math.max(0,R.core.hp-h0));orbEvoCheck();return b-a;}
 function orbEvoCheck(){for(const [id,a,b] of (ORB_EVO[R.world]||[])){if(R.evos[id])continue;const ok=a==='*'?ORBS.every(o=>olv(o.id)>=ORB_EVO_AT):olv(a)>=ORB_EVO_AT&&olv(b)>=ORB_EVO_AT;if(ok)applyEvo(id);}}
 const orbBigP=()=>ORB_BIG_P;
 
@@ -1128,7 +1129,7 @@ function resolveCapture(xs,ys,n,area,pct,primary){
     unlockAch('first');if(N>=10)unlockAch('l10');if(N>=25)unlockAch('l25');
     if(primary&&N>R.biggest){R.biggest=N;const st=Math.max(1,Math.floor(n/100));const arr=[];for(let i=0;i<n;i+=st)arr.push(Math.round(xs[i]),Math.round(ys[i]));R.bigPoly=arr;}}
   if(primary){R.lastCapture={count,killed,area:Math.round(area),points,tight,t:R.time,cx,cy};R.capEvents++;
-    if(R.tut&&!R.clockOn&&killed>0&&!R.orbLes){if(orbsOn())R.orbLes=1;else tutGo(cx,cy);}   /* r13 LOOP-2b: World 1 teaches the orbs first (the lesson set drops on the next step, after this loop's own orb check) */
+    if(R.tut&&!R.clockOn&&killed>0&&!R.orbLes){if(R.world===1)R.orbLes=1;else tutGo(cx,cy);}   /* r13 LOOP-2b: World 1 teaches the orbs first (the lesson set drops on the next step, after this loop's own orb check) */
     if(R.tut&&R.capEvents===3&&R.level===1){R.xp=Math.max(R.xp,R.xpNext);gainXP(0);R.tutCards=true;}}
   // Shockwave
   const sw=lv('shock');if(sw>0||R.evos.novafence){for(let i=0;i<nE;i++){const e=E[i];if(!e.alive||e.fid===fid)continue;if(e.x<x0-40-e.r||e.x>x1+40+e.r||e.y<y0-40-e.r||e.y>y1+40+e.r)continue;
@@ -1433,7 +1434,7 @@ W2.newRun=function(r,opts){const w2=save.w2,sk=r.stake||0,wid=r.wireId;
 function w2Ev(kind,n){const X=W2.event;
   if(kind==='drift'){if(X&&X.drift){X.drift(n);return;}const side=Math.floor(R.rS()*4);const c=edgePos(side,30);for(let k=0;k<n&&aliveCount()<ALIVE_CAP;k++){const e=spawnE(T_MOTE,c[0]+(R.rS()-0.5)*60,c[1]+(R.rS()-0.5)*60);if(e)e.spd=50;}return;}
   if(X&&X.spawn){X.spawn(kind);return;}const ty=W2.types&&W2.types[kind]!==undefined?W2.types[kind]:(kind==='kettle'?T_BULW:T_MOTE);if(aliveCount()<ALIVE_CAP)spawnEdge(ty);}
-function w2Modes(dt,t){const w=R.w2rules,v=R.w2ev;if(R.keep===1&&t>=H_KEEP_AT&&!R.ot)R.keep=2;   /* Keepsake: the overlay opens from advance() */
+function w2Modes(dt,t){const w=R.w2rules,v=R.w2ev;if(R.keep===1&&t>=H_KEEP_AT&&!R.ot)R.keep=2;   /* Keepsake: the free orb set drops from advance() once no set is live (r13 LOOP-4) */
   if(!w||R.bossState!==0||R.ot)return;
   // L79: a moment that passed by more than 2 s (time jump, stall) is skipped, never fired late or in a burst
   if(w.driftEvery>0)while(t>=v.drift+2)v.drift+=w.driftEvery;if(w.mothStorm)while(t>=v.moth+2)v.moth+=2;if(w.kettleAt>=0){v.kettle=Math.max(v.kettle,w.kettleAt);while(t>=v.kettle+2)v.kettle+=20;}
@@ -1441,10 +1442,10 @@ function w2Modes(dt,t){const w=R.w2rules,v=R.w2ev;if(R.keep===1&&t>=H_KEEP_AT&&!
   if(w.mothStorm&&t>=v.moth){v.moth+=2;const ty=duskMoth();if(typeAlive(ty)<18){w2Ev('moth');w2Ev('moth');}}
   if(w.kettleAt>=0&&t>=Math.max(v.kettle,w.kettleAt)){v.kettle=Math.max(v.kettle,w.kettleAt)+20;w2Ev('kettle');}}
 // HEARTH shop effects (WORLD2.md §6; World 2 runs only, from r.hs): Warmth +4% loop damage, Quilt +25 max HP, Spool +8% thick threshold per level;
-// Cocoa heals 2 per level on a loop of 8+; Blanket absorbs the first Core hit of the run; Keepsake offers a free pick of 3 commons at 0:05; Lamplighter = r.duskLamp
+// Cocoa heals 2 per level on a loop of 8+; Blanket absorbs the first Core hit of the run; Keepsake drops a free set of power orbs at 0:05 (r13 LOOP-4); Lamplighter = r.duskLamp
 const H_WARMTH=0.04,H_QUILT=25,H_SPOOL=0.08,H_COCOA=2,H_COCOA_MIN=8,H_KEEP_AT=5,DUSK_GUST_BLAME=1.5;
 function w2Blanket(C,x,y){R.blanket=false;C.inv=R.iframes;C.hurt=0.2;popup(C.x,C.y-20,'BLANKET',14,TH.heal,0.9,-26);ring(C.x,C.y,10,60,0.4,TH.heal,4);duskSnd(()=>SFX.stagger());return true;}
-function doKeepsake(){R.keepOffer=true;interruptInput();curCards=rollCards();cardSel=kbUsed?0:-1;setState('levelup');renderLevelUp();duskSnd(()=>offerBell());}
+function doKeepsake(){R.pendingLv++;dropOrbs();}   /* r13 LOOP-4: a free orb set (pendingLv is raised first, so no level is used); the run never stops */
 // World 2 finished = a Duskwing kill AND every HEARTH line maxed (WORLD2.md §6). WP-C: call w2CheckDone() after a HEARTH purchase too.
 function isW2Done(sv){const w=sv&&sv.w2;if(!w||!w.stats||!(w.stats.kills>=1))return false;return W2_SHOP.every(it=>((w.shop&&w.shop[it.id])||0)>=it.max);}
 function w2CheckDone(){if(save.w2.done||!isW2Done(save))return false;save.w2.done=true;unlockAch('w2_home');return true;}
@@ -1638,7 +1639,7 @@ function advance(realDt){if(!R)return;
     R.tsEff=ts;
     acc+=realDt*ts;let n=0;while(acc>=STEP&&n<5&&state==='run'){step(STEP);acc-=STEP;n++;if(R.hitstop>0)break;}
     if(n>=5)acc=0;
-    if(state==='run'&&!R.over&&!CINCH.on&&!(R.lvHold>0)){if(R.keep===2&&R.hitstop<=0){R.keep=0;doKeepsake();return;}if(R.pendingLv>0&&R.hitstop<=0){if(orbsOn()){if(!nOrbs()&&!(R.orbGapT>0))dropOrbs();}else{doLevelUp();return;}}}
+    if(state==='run'&&!R.over&&!CINCH.on&&!(R.lvHold>0)){if(R.keep===2&&R.hitstop<=0&&!nOrbs()&&!(R.orbGapT>0)){R.keep=0;doKeepsake();}if(R.pendingLv>0&&R.hitstop<=0){if(orbsOn()){if(!nOrbs()&&!(R.orbGapT>0))dropOrbs();}else{doLevelUp();return;}}}
   }
 }
 // real-time (unscaled) visual decay, called once per rendered/test frame
@@ -1678,7 +1679,7 @@ function makeSprite(T,col,white,glow){const r=T.r*1.3,pad=glow?8:2,sz=Math.ceil(
     if(T.shape===5){g.beginPath();g.arc(0,0,T.r*0.3,0,TAU);g.fillStyle=col;g.fill();}}
   return{c,hw:sz/SS/2};}
 function buildSprites(){SPR.length=0;ATL.m={};ATL.k=0;atlDone=false;for(const T of ET){const c=entCol(T);SPR.push([makeSprite(T,c,false,true),makeSprite(T,c,true,true),makeSprite(T,TH.gold,false,true),makeSprite(T,c,false,false)]);}
-  GLOW.core=glowDot(CORE_COL,26);GLOW.bolt=glowDot(TH.bolt,10);GLOW.needle=glowDot(TH.danger,10);GLOW.cry0=glowDot(TH.x5ff8ff,8);GLOW.cry1=glowDot(TH.heal,10);GLOW.cry2=glowDot(TH.danger,12);GLOW.chest=glowDot(TH.gold,24);for(const o of ORBS){GLOW['o_'+o.id]=glowDot(TH[o.role],22);ORB_SPR[o.id]=[orbSprite(o,false),orbSprite(o,true),GLOW['o_'+o.id]];}GLOW.boss=glowDot(TH.boss,110);buildOrbHud();}
+  GLOW.core=glowDot(CORE_COL,26);GLOW.bolt=glowDot(TH.bolt,10);GLOW.needle=glowDot(TH.danger,10);GLOW.cry0=glowDot(TH.x5ff8ff,8);GLOW.cry1=glowDot(TH.heal,10);GLOW.cry2=glowDot(TH.danger,12);GLOW.chest=glowDot(TH.gold,24);for(const o of ORBS){GLOW['o_'+o.id]=glowDot(TH[o.role],22);ORB_SPR[o.id]=THW===2?[orbSpriteW2(o,false),orbSpriteW2(o,true),GLOW['o_'+o.id]]:[orbSprite(o,false),orbSprite(o,true),GLOW['o_'+o.id]];}GLOW.boss=glowDot(TH.boss,110);buildOrbHud();}
 const GLOW={};
 // r13 LOOP-2: a power orb, baked once per theme and scale: dark disc, colour ring, the colour's glyph; big = 1.35x with a second ring
 function orbSprite(o,big){const r=big?Math.round(ORB_R*1.35):ORB_R,pad=big?5:2,sz=Math.ceil((r+pad)*2*SS);const c=document.createElement('canvas');c.width=c.height=sz;const g=c.getContext('2d');g.translate(sz/2,sz/2);g.scale(SS,SS);const col=TH[o.role];
@@ -1804,7 +1805,8 @@ function drawWorld(){const C=R.core,B=R.boss,glow=!Q.low;if(TEST)window.__drawCo
   // power orbs (r13 LOOP-2): baked glow + sprite per orb, alpha only (blink in the last ORB_BLINK s); fly out of the Core over 0.25 s; gifts at 0.6 scale
   {let any=false;for(const o of ORBP)if(o.on){any=true;break;}
     if(any){const blink=R.orbSetT>=(R.tut?ORB_LIFE_TUT:ORB_LIFE)-ORB_BLINK;
-      for(let pass=glow?0:1;pass<2;pass++){let k=0;for(const o of ORBP){k++;if(!o.on)continue;let x=o.x,y=o.y;
+      for(let pass=glow&&THW!==2?0:1;pass<2;pass++){let k=0;for(const o of ORBP){   /* r13 LOOP-4: World 2's crocheted buttons have no additive glow */
+        k++;if(!o.on)continue;let x=o.x,y=o.y;
         if(!o.fx){if(o.t<0.25){const f=o.t/0.25;x=o.sx+(o.x-o.sx)*f;y=o.sy+(o.y-o.sy)*f;}y+=2*Math.sin(menuT*3+k);}
         ctx.globalAlpha=o.fx?1:(blink?0.35+0.65*((menuT*6|0)%2):1);const sp=ORB_SPR[o.id];
         if(pass===0)drawGlow(sp[2],x,y,o.fx?0.6:1);else drawSpr(sp[o.big?1:0],x,y,0,o.fx?0.6:1);}}
@@ -2050,9 +2052,8 @@ function drawHUD(){const W=L.W,H=L.H,C=R.core;ctx.textBaseline='middle';
     ctx.fillStyle=('rgba('+TH.x3c2d00_+',0.95)');ctx.fillRect(pc-tw/2,xy+19,tw,19);ctx.strokeStyle=TH.gold;ctx.lineWidth=1;ctx.strokeRect(pc-tw/2+0.5,xy+19.5,tw-1,18);ctx.fillStyle=TH.goldPale;ctx.fillText(txt,pc,xy+29,tw-8);ctx.globalAlpha=1;}
   else if(R.tut){ctx.textAlign='center';ctx.font='700 11px system-ui,sans-serif';ctx.fillStyle=('rgba('+TH.dim_+',0.75)');ctx.fillText(save.settings.mode==='offset'?'thumb here · wire draws above it':'drag anywhere',midC(midW),xy+28,midW);}
   else{// build icons inside the strip
-    const w1=R.world===1,ids=R.cardOrder,ne=Object.keys(R.evos),oW=w1?ORBS.length*(ORB_HUD_W+6):0;const nI=(w1?0:ids.length)+ne.length,stp=17,maxW=Math.min(W*0.5,midW);const bw=Math.min(Math.max(maxW,oW),oW+nI*stp),bc=midC(bw);let ix=bc-bw/2+2;const iy=xy+21;
-    if(w1){const oy=xy+28-ORB_HUD_H/2;for(const o of ORBS){const c=ORB_HUD[o.id][olv(o.id)];ctx.drawImage(c,ix,oy,c.width/ORB_HUD.k,c.height/ORB_HUD.k);ix+=ORB_HUD_W+6;}ix+=2;}   /* r13 LOOP-3: the three colours as baked glyph + pips sprites (one blit each; never the hidden cards) */
-    if(!w1)for(const id of ids){if(ix>bc+maxW/2-10)break;const p=path2d(id);if(!p)continue;ctx.save();ctx.translate(ix,iy);ctx.scale(0.55,0.55);ctx.strokeStyle=CARD_BY[id].col;ctx.lineWidth=2.2;ctx.globalAlpha=0.85;ctx.stroke(p);ctx.restore();ix+=stp;}
+    const ne=Object.keys(R.evos),oW=ORBS.length*(ORB_HUD_W+6);const nI=ne.length,stp=17,maxW=Math.min(W*0.5,midW);const bw=Math.min(Math.max(maxW,oW),oW+nI*stp),bc=midC(bw);let ix=bc-bw/2+2;const iy=xy+21;
+    {const oy=xy+28-ORB_HUD_H/2;for(const o of ORBS){const c=ORB_HUD[o.id][olv(o.id)];ctx.drawImage(c,ix,oy,c.width/ORB_HUD.k,c.height/ORB_HUD.k);ix+=ORB_HUD_W+6;}ix+=2;}   /* r13 LOOP-3: the three colours as baked glyph + pips sprites (one blit each; never the hidden cards); LOOP-4: both worlds */
     for(const id of ne){if(ix>bc+maxW/2-10)break;const p=path2d(id);if(!p)continue;ctx.save();ctx.translate(ix,iy);ctx.scale(0.55,0.55);ctx.strokeStyle=TH.gold;ctx.lineWidth=2.6;ctx.stroke(p);ctx.restore();ix+=stp;}}
   ctx.globalAlpha=1;}
 
@@ -2264,6 +2265,17 @@ function w2MenuBg(W,H){const key='menubg'+W+'x'+H,o=w2Cache(key,W,H,(g)=>{const 
   if(!GS.ready)return;const m=GS.m['w2_moth|n|n'],b=GS.m['w2_firefly|n|n'];if(!m||!b)return;const k=GS.k,sz=m.sz;
   for(let i=0;i<3;i++){const t=menuT*0.35+i*2.1,x=W*(0.5+0.42*Math.sin(t*0.7+i)),y=H*(0.45+0.3*Math.sin(t*0.9+i*1.7)),ang=Math.atan2(Math.cos(t*0.9+i*1.7)*0.3*H*0.9,Math.cos(t*0.7+i)*0.42*W*0.7),fr=((menuT*8)|0)%2;let face=Math.round(ang/TAU*GS_FACE)%GS_FACE;if(face<0)face+=GS_FACE;const d=sz/k*L.S*1.6;ctx.drawImage(m.c,(fr*GS_FACE+face)*sz,0,sz,sz,x-d/2,y-d/2,d,d);}
   {const t=menuT*0.5,x=W*(0.5+0.4*Math.cos(t)),y=H*(0.25+0.1*Math.sin(t*2.3)),ang=Math.atan2(Math.cos(t*2.3)*0.1*H*2.3,-Math.sin(t)*0.4*W),fr=((menuT*8)|0)%2;let face=Math.round(ang/TAU*GS_FACE)%GS_FACE;if(face<0)face+=GS_FACE;const d=b.sz/k*L.S*1.6;ctx.drawImage(b.c,(fr*GS_FACE+face)*b.sz,0,b.sz,b.sz,x-d/2,y-d/2,d,d);}}
+// r13 LOOP-4: World 2's power orb is a crocheted button, baked once per theme and scale like the garden strips (buildSprites when THW===2):
+// a cast shadow at the light's golden-hour offset (w2Light at bake time), an ink disc with a face in the colour, a ring of 8 bobbles and 4 thread holes,
+// and the colour's glyph stitched in cream over an ink outline. Big = 1.35x with an outer ring of small bobbles. No additive glow is drawn in World 2.
+function orbSpriteW2(o,big){const r=big?Math.round(ORB_R*1.35):ORB_R,pad=big?7:5,sz=Math.ceil((r+pad)*2*SS),lt=w2Light();const c=document.createElement('canvas');c.width=c.height=sz;const g=c.getContext('2d');g.translate(sz/2,sz/2);g.scale(SS,SS);const col=TH[o.role];
+  g.globalAlpha=0.38;g.fillStyle=W2G.ink;g.beginPath();g.ellipse(lt[0]*0.7,lt[1]*0.7+1,r*1.02,r*0.92,0,0,TAU);g.fill();g.globalAlpha=1;
+  if(big)gsDots(g,0,0,r+2.6,0,TAU,1.4,col);
+  gsDot(g,0,0,r,W2G.ink);g.globalAlpha=0.6;gsDot(g,0,0,r-1.2,col);g.globalAlpha=1;
+  const rr=r*0.8,br=r*0.19;for(let i=0;i<12;i++){const a=(i*30+15)*Math.PI/180,x=Math.cos(a)*rr,y=Math.sin(a)*rr;
+    if(i%3===1){gsDot(g,x,y,br*0.75,col);gsDot(g,x,y,br*0.45,W2G.ink);}else{gsDot(g,x,y,br,col);g.globalAlpha=0.55;gsDot(g,x-br*0.3,y-br*0.3,br*0.4,W2G.cream);g.globalAlpha=1;}}
+  const p=path2d(o.ic);if(p){const k=0.56*r/12;g.save();g.scale(k,k);g.translate(-12,-12);g.lineJoin='round';g.lineCap='round';g.strokeStyle=W2G.ink;g.lineWidth=3.6/k;g.stroke(p);g.strokeStyle=W2G.cream;g.lineWidth=1.9/k;g.setLineDash([2.4/k,1.3/k]);g.stroke(p);g.setLineDash([]);g.restore();}
+  return{c,hw:sz/SS/2};}
 // ---------------- WP-C: World 2 audio (WORLD2.md §1) via the existing buses ----------------
 const W2_PENTA=[62,64,66,69,71];   // D E F# A B (MIDI, octave 4)
 const W2_CHORDS=[[62,66,69],[59,62,66],[55,59,62],[57,61,64]],W2_DUSK=[55,58,62];   // D, Bm, G, A (2 bars each); Gm colour at dusk
@@ -2392,7 +2404,7 @@ const RAR=['common','rare','epic','legendary'];
 // (same RNG draws as before; EPIC/LEGENDARY still add levels)
 const LV_ONLY={shock:1,implode:1,splice:1,tight:1,twin:1};
 function rollRarity(){const r=R.rC()*100;return r<2?3:r<12?2:r<40?1:0;}
-function rollCards(){if(R.world===1&&!R.keepOffer){R.tutCards=false;const cs=ORBS.filter(o=>olv(o.id)<ORB_MAX).map(o=>({kind:'orb',id:o.id,rar:R.rC()<orbBigP()?2:0}));return cs.length?cs:[{kind:'heal',rar:0}];}   /* r13 LOOP-1: World 1 offers one colour per non-max colour (big = +2, one R.rC() each); no evolutions, rarity or tutorial limit */
+function rollCards(){if(!R.keepOffer){R.tutCards=false;const cs=ORBS.filter(o=>olv(o.id)<ORB_MAX).map(o=>({kind:'orb',id:o.id,rar:R.rC()<orbBigP()?2:0}));return cs.length?cs:[{kind:'heal',rar:0}];}   /* r13 LOOP-1: World 1 offers one colour per non-max colour (big = +2, one R.rC() each); no evolutions, rarity or tutorial limit. LOOP-4: all worlds (the overlay is unreachable; only __lh.chest's overlay and old hooks remain) */
   const cards=[];let pool=[];const tutLimit=R.tutCards||R.keepOffer;R.tutCards=false;const keep=!!R.keepOffer;
   for(const c of CARDS){if(lv(c.id)>=c.max)continue;if(c.world&&c.world!==R.world)continue;if(tutLimit&&!keep&&c.id!=='long'&&c.id!=='snap'&&c.id!=='live')continue;pool.push(c.id);}   /* Keepsake: any card, always common */
   const evo=keep?[]:evoEligible();if(evo.length&&R.rC()<0.85){cards.push({kind:'evo',id:evo[Math.floor(R.rC()*evo.length)].id,rar:3});}
@@ -2526,8 +2538,8 @@ function resumeFromOverlay(){show('');lockUI(250);setState('run');if(R){R.lifted
 /* chest */
 /* r12 SIMPLE-4: the reward roll, shared by the in-arena chest (openChestInline) and the reel overlay (openChest, kept for __lh.chest and the bots) */
 function rollChest(n,quiet){const rewards=[],before={};
-  if(R.world!==1){const ev=evoEligible();if(ev.length){applyEvo(ev[0].id,quiet);rewards.push({id:ev[0].id,evo:true,n:ev[0].n,rar:3});}}   /* r13 LOOP-1: World 1 evolutions come from orbGain */
-  if(R.world===1){while(rewards.length<n){const pool=ORBS.filter(o=>olv(o.id)<ORB_MAX);if(!pool.length){R.extraShards=(R.extraShards||0)+25;rewards.push({id:'shard',n:'+25 Shards',rar:0});continue;}const o=pool[Math.floor(R.rC()*pool.length)];orbGain(o.id,1,'chest');rewards.push({id:o.id,orb:true,n:o.w,rar:0});}}   /* r13 LOOP-1: colour levels */
+  /* r13 LOOP-1: evolutions come from orbGain (LOOP-4: in World 2 too; its card-pair evolution path is gone) */
+  {while(rewards.length<n){const pool=ORBS.filter(o=>olv(o.id)<ORB_MAX);if(!pool.length){R.extraShards=(R.extraShards||0)+25;rewards.push({id:'shard',n:'+25 Shards',rar:0});continue;}const o=pool[Math.floor(R.rC()*pool.length)];orbGain(o.id,1,'chest');rewards.push({id:o.id,orb:true,n:o.w,rar:0});}}   /* r13 LOOP-1: colour levels (LOOP-4: both worlds; the card loop below no longer runs) */
   while(rewards.length<n){const pool=CARDS.filter(c=>lv(c.id)<c.max&&(!c.world||c.world===R.world));if(!pool.length){R.extraShards=(R.extraShards||0)+25;rewards.push({id:'shard',n:'+25 Shards',rar:0});continue;}
     const c=pool[Math.floor(R.rC()*pool.length)];if(before[c.id]===undefined)before[c.id]=lv(c.id);addCard(c.id,1,1);const now=lv(c.id);rewards.push({id:c.id,n:c.n,rar:before[c.id]===0?1:(now>=c.max?2:0)});}
   const lines=[],seen={};for(const rw of rewards){if(rw.evo){lines.push({t:'★ '+rw.n+' (EVOLUTION)',rar:3});continue;}if(rw.id==='shard'){lines.push({t:rw.n,rar:0});continue;}if(seen[rw.id])continue;seen[rw.id]=1;
@@ -2543,13 +2555,12 @@ function openChest(forceN){interruptInput();const r=R.rD();const n=forceN||(r<0.
 function openChestInline(x,y){R.chestsOpened++;const r=R.rD();const n=r<0.05?5:r<0.30?3:1;const {rewards,lines}=rollChest(n,false);const evo=rewards.some(w=>w.evo);
   hitstop(60);ring(x,y,10,120,0.4,TH.gold,4);if(n===5||!evo)SFX.chestResult(n===5);buzz([30,30,30]);
   const cols=[TH.uiText,TH.x7cc4ff,TH.xdba2ff,TH.gold];   /* the overlay's .rl0-.rl3 colours; lines start 26 u above the Core so they never cover it */
-  let pk=0;for(let k=0;k<lines.length;k++){if(R.world===1&&lines[k].orb)continue;popup(x,y-26-18*pk,lines[k].t,13,cols[lines[k].rar]||TH.gold,1.6,-30);pk++;}
-  if(R.world===1){let gn=0;for(const rw of rewards)if(rw.orb)gn++;let gk=0;for(const rw of rewards){if(!rw.orb)continue;const a=-Math.PI/2+(gk-(gn-1)/2)*0.7;orbAdd(rw.id,x+Math.cos(a)*34,y+Math.sin(a)*34,false,true);gk++;}}   /* r13 LOOP-2: one gift per colour level, out of the box and into the Core */
+  let pk=0;for(let k=0;k<lines.length;k++){if(lines[k].orb)continue;popup(x,y-26-18*pk,lines[k].t,13,cols[lines[k].rar]||TH.gold,1.6,-30);pk++;}
+  {let gn=0;for(const rw of rewards)if(rw.orb)gn++;let gk=0;for(const rw of rewards){if(!rw.orb)continue;const a=-Math.PI/2+(gk-(gn-1)/2)*0.7;orbAdd(rw.id,x+Math.cos(a)*34,y+Math.sin(a)*34,false,true);gk++;}}   /* r13 LOOP-2: one gift per colour level, out of the box and into the Core */
   if(n===5){banner('JACKPOT!','',TH.gold,1.6,true);unlockAch('jack');confetti(40);}}
-const ICON_IDS=CARDS.map(c=>c.id),ICON_IDS_W1=CARDS.filter(c=>!c.world).map(c=>c.id);   // r11: World 1 reels never flash World 2 cards
 function chestTick(dt){if(!chestS||state!=='chest')return;const S=chestS;S.t+=dt;
   for(let i=0;i<S.n;i++){const stopAt=0.8+i*(0.7/Math.max(1,S.n-1));const el=document.getElementById('reel'+i);if(!el)continue;
-    if(S.t<stopAt){if(((S.t*14)|0)!==el._k){el._k=(S.t*14)|0;if(R&&R.world===1){const o=ORBS[(Math.random()*ORBS.length)|0];el.innerHTML=svgIcon(o.ic,TH[o.role],34);}else{const ids=R&&R.world===2?ICON_IDS:ICON_IDS_W1,id=ids[(Math.random()*ids.length)|0];el.innerHTML=svgIcon(id,CARD_BY[id].col,34);}}}
+    if(S.t<stopAt){if(((S.t*14)|0)!==el._k){el._k=(S.t*14)|0;{const o=ORBS[(Math.random()*ORBS.length)|0];el.innerHTML=svgIcon(o.ic,TH[o.role],34);}   /* r13 LOOP-4: both worlds' reels flash the colours */}}
     else if(!el._stop){el._stop=1;const rw=S.rewards[i];el.classList.add('stop','r'+(rw.rar||0));el.innerHTML=rw.orb?svgIcon(ORB_BY[rw.id].ic,TH[ORB_BY[rw.id].role],38):svgIcon(rw.id,rw.evo?TH.gold:(CARD_BY[rw.id]?CARD_BY[rw.id].col:TH.gold),38);S.stopped++;SFX.reelStop();}}
   const tk=Math.min(12,(S.t/1.5*12)|0);while(S.ticks<tk){SFX.tick(S.ticks);S.ticks++;}
   if(!S.done&&S.t>=1.5){S.done=true;S.doneAt=nowMs();if(S.rewards.some(r=>r.evo))SFX.evolution();if(S.n===5||!S.rewards.some(r=>r.evo))SFX.chestResult(S.n===5);const res=document.getElementById('chestRes');if(res)res.innerHTML=S.lines.map(l=>`<div class="rl${l.rar}">${esc(l.t)}</div>`).join('');
@@ -2563,15 +2574,15 @@ function buildSheet(build,evos,imp,live){const mt=id=>{const m=impTxt(id,imp[id]
   return evos.map(id=>{const e=EVO_BY[id];return `<div class="br evo"><div class="bi evo">${svgIcon(id,TH.gold,24)}</div><div class="bt"><div class="bn">${esc(e.n)}</div><div class="bv">${esc(e.d)}</div>${mt(id)}</div></div>`;}).join('')
   +build.map(([id,l])=>{const d=CARD_BY[id];
     return `<div class="br"><div class="bi">${svgIcon(id,d.col,24)}<em>${l}</em></div><div class="bt"><div class="bn">${esc(d.n)}${pipsHTML(d.col,d.max,l,l)}</div><div class="bv">${live?cardVals(id).map(([k,v])=>`${esc(k)} <b>${esc(v)}</b>`).join(' · '):esc(d.d)}</div>${mt(id)}</div></div>`;}).join('');}
-// r13 LOOP-1: the World 1 build sheet: evolutions first (as buildSheet), then one row per colour (glyph, word, pips, headline when live, 'This run:' over ORB_IMP)
-function orbSheet(ol,evos,imp,live){ol=ol||{};const mt=ids=>{const s={};for(const id of ids){const o=imp[id];if(!o)continue;for(const k in o)s[k]=(s[k]||0)+o[k];}const m=impTxt(ids.length===1?ids[0]:'',s);return m?`<div class="bm">${live?'This run: ':''}${esc(m)}</div>`:'';};
+// r13 LOOP-1: the colour build sheet (both worlds since LOOP-4): evolutions first (as buildSheet), then one row per colour (glyph, word, pips, headline when live, 'This run:' over ORB_IMP)
+function orbSheet(ol,evos,imp,live,w){ol=ol||{};const oi=ORB_IMP[w===2?2:1];const mt=ids=>{const s={};for(const id of ids){const o=imp[id];if(!o)continue;for(const k in o)s[k]=(s[k]||0)+o[k];}const m=impTxt(ids.length===1?ids[0]:'',s);return m?`<div class="bm">${live?'This run: ':''}${esc(m)}</div>`:'';};
   return buildSheet([],evos,imp,live)+ORBS.map(o=>{const l=ol[o.id]||0,col=TH[o.role];
     /* r13 LOOP-3: live (pause) = the headline value plus each owned ORB_EXTRA side effect's live value (cardVals), at most 2 per bar (World 1's table is empty: headline only);
        summary = what the colour is, or 'Not taken this run' on a dimmed row */
     let bv;if(live){const vs=[orbHead(o.id)],ex=(ORB_EXTRA[R.world]||ORB_EXTRA[1])[o.id]||{},seen={};for(const k in ex)for(const [cid] of ex[k]){if(seen[cid]||!(lv(cid)>0))continue;seen[cid]=1;vs.push(cardVals(cid)[0]);}
       bv=vs.slice(0,2).map(([k,v])=>`${esc(k)} <b style="color:${col}">${esc(v)}</b>`).join(' · ');}else bv=l?esc(o.d):'Not taken this run';
-    return `<div class="br"${!live&&!l?' style="opacity:.5"':''}><div class="bi">${svgIcon(o.ic,col,24)}<em>${l}</em></div><div class="bt"><div class="bn">${esc(o.w)}${pipsHTML(col,ORB_MAX,l,l)}</div><div class="bv">${bv}</div>${mt(ORB_IMP[o.id])}</div></div>`;}).join('');}
-function showPause(){setState('pause');A.suspend();const build=R.world===1?orbSheet(R.olv,Object.keys(R.evos),R.imp||{},true):buildSheet(R.cardOrder.map(id=>[id,lv(id)]),Object.keys(R.evos),R.imp||{},true);
+    return `<div class="br"${!live&&!l?' style="opacity:.5"':''}><div class="bi">${svgIcon(o.ic,col,24)}<em>${l}</em></div><div class="bt"><div class="bn">${esc(o.w)}${pipsHTML(col,ORB_MAX,l,l)}</div><div class="bv">${bv}</div>${mt(oi[o.id])}</div></div>`;}).join('');}
+function showPause(){setState('pause');A.suspend();const build=orbSheet(R.olv,Object.keys(R.evos),R.imp||{},true,R.world);   /* r13 LOOP-4: both worlds show the three colours */
   show(`<div class="scr dim"><div class="col" style="margin-top:auto"><h2>PAUSED</h2><div class="sub">${fmtTime(R.time)} · LV ${R.level} · ${fmtN(R.captures)} captured · ${fmtN(R.score)} pts</div>${build?`<div class="bsheet">${build}</div>`:`<div class="build"><span class="sub">no upgrades yet</span></div><div class="sub">Loop damage ${Math.round(40*R.dmgMult)} · wire ${Math.round(R.maxLen)} · min loop ${Math.round(R.minArea)}</div>`}${R.surgeT>0?`<div class="sub surgeln">SURGE: captures ×${SURGE_PTS} for ${SURGE_DUR} s</div>`:''}
   <button class="btn primary" data-a="resume" style="margin-top:14px">RESUME</button><div class="row"><button class="btn small" data-a="restart">RESTART</button><button class="btn small" data-a="psettings">SETTINGS</button><button class="btn small" data-a="quit">QUIT</button></div></div></div>`);lockUI(350);}
 function toLiftPause(){setState('liftpause');if(R){R.lifted=true;}}
@@ -2682,7 +2693,7 @@ function showSummary(S){if(S.ot)return showOTSummary(S);setState('summary');coun
   <div style="margin-top:10px">${S.near.slice(1).map(n=>`<div class="near">${esc(n)}</div>`).join('')}</div>
   ${S.bossPct!=null?`<div class="knotbar"><span>${S.world===2?'THE DUSKWING':'THE KNOT'}</span><div class="bar"><i style="width:${Math.max(1,Math.round(S.bossPct*100))}%"></i></div><span>${Math.max(1,Math.round(S.bossPct*100))}%</span></div>`:''}
   ${S.ach.length?`<div class="near" style="color:${TH.gold}">🏆 ${S.ach.map(id=>esc(ACH.find(a=>a.id===id).n)).join(' · ')}</div>`:''}
-  ${S.world!==2&&S.olv?(ORBS.some(o=>S.olv[o.id]>0)||S.evos.length?`<div class="sub" style="margin-top:10px;letter-spacing:2px;font-weight:800">YOUR POWER</div><div class="bsheet" style="max-height:none">${orbSheet(S.olv,S.evos,S.imp||{},false)}</div>`:''):S.build.length||S.evos.length?`<div class="sub" style="margin-top:10px;letter-spacing:2px;font-weight:800">WHAT YOUR CARDS DID</div><div class="bsheet" style="max-height:none">${buildSheet(S.build,S.evos,S.imp||{},false)}</div>`:''}${storeNote()}</div>
+  ${S.olv?(ORBS.some(o=>S.olv[o.id]>0)||S.evos.length?`<div class="sub" style="margin-top:10px;letter-spacing:2px;font-weight:800">YOUR POWER</div><div class="bsheet" style="max-height:none">${orbSheet(S.olv,S.evos,S.imp||{},false,S.world)}</div>`:''):S.build.length||S.evos.length?`<div class="sub" style="margin-top:10px;letter-spacing:2px;font-weight:800">WHAT YOUR CARDS DID</div><div class="bsheet" style="max-height:none">${buildSheet(S.build,S.evos,S.imp||{},false)}</div>`:''}${storeNote()}</div>
   <div class="pinbar" id="retrybar"><div class="more">▾ MORE</div>
   <div style="width:100%;max-width:520px"><div class="row"><button class="btn small" data-a="shop2" style="flex-direction:column;gap:0">SHOP${shopHint()}</button><button class="btn small" data-a="wires">WIRES</button><button class="btn small" data-a="title">MENU</button></div>
   ${nextStakeOf(S)||(S.otOK&&R&&R.victory&&R.over&&!R.ot)?`<div class="row">${nextStakeOf(S)?`<button class="btn small gold" data-a="nextstake" data-v="${nextStakeOf(S)}">STAKE ${nextStakeOf(S)} ▶</button>`:''}${S.otOK&&R&&R.victory&&R.over&&!R.ot?`<button class="btn small gold" data-a="overtime">${S.world===2?'LONG NIGHT':'OVERTIME'} ▶</button>`:''}</div>`:''}${nextRunHTML(S)}
