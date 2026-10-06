@@ -126,11 +126,6 @@ letter-spacing:2px;text-shadow:0 0 12px rgba(var(--t-gold-rgb),.8);box-shadow:0 
 .br{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 10px}.br.evo{border-color:var(--gold)}
 .br .bi{flex:0 0 40px}.bt{min-width:0;flex:1}.bn{font-weight:900;font-size:14px;letter-spacing:.5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.br.evo .bn{color:var(--gold)}
 .bv{font-size:12px;color:var(--dim);font-weight:700;line-height:1.3}.bv b{color:var(--fg)}.bm{font-size:12px;font-weight:800;color:var(--t-mint);line-height:1.3}
-/* chest */
-.reels{display:flex;gap:8px;justify-content:center;margin:16px 0;flex-wrap:wrap}
-.reel{width:60px;height:72px;border-radius:12px;border:2px solid var(--gold);background:var(--t-uiDeep);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 16px rgba(var(--t-black-rgb),.8),0 0 12px rgba(var(--t-gold-rgb),.3)}
-.reel.stop{animation:pop .3s}@keyframes pop{50%{transform:scale(1.18)}}
-.jack{font-size:clamp(36px,10.5vw,58px);font-weight:900;color:var(--gold);text-align:center;text-shadow:0 0 16px var(--gold),0 0 30px var(--pink);animation:jpop .5s infinite;width:max-content;max-width:100%;margin:0 auto}@keyframes jpop{50%{transform:scale(1.08)}}
 /* hud dom */
 #pb{position:fixed;top:calc(8px + var(--sat));right:calc(8px + var(--sar));width:48px;height:48px;border-radius:12px;border:1.5px solid var(--line);background:rgba(var(--t-x0a0c1e-rgb),.6);
 color:var(--t-white);font-size:18px;font-weight:900;z-index:3;display:none;touch-action:manipulation;cursor:pointer;align-items:center;justify-content:center}
@@ -177,14 +172,12 @@ button.pill2,button.goal{font-family:inherit;cursor:pointer;touch-action:manipul
 @keyframes sunrise{0%{background-position:0 0}100%{background-position:0 100%}}@keyframes sunup{0%{transform:translateY(160px);opacity:0}100%{transform:none;opacity:1}}@keyframes ctxin{0%,55%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}@keyframes crossfade{0%{opacity:0}100%{opacity:1}}
 .scr.opaque{background:radial-gradient(ellipse at 50% 30%,var(--t-x1a1240),var(--t-panel) 75%)}
 .again .stamp,.again .pill2{animation:none}
-@media (prefers-reduced-motion:reduce){.logo,.logo::after,.pill2,.stamp,.retry,.jack{animation:none}}
+@media (prefers-reduced-motion:reduce){.logo,.logo::after,.pill2,.stamp,.retry{animation:none}}
 @media (max-height:700px){.goal+.goal{display:none}.logo{font-size:clamp(40px,12vw,80px)}.ttop{margin-top:2vh}.tag{margin:6px 0 10px}.set{min-height:48px;margin:4px 0;padding:8px 12px}
 .pinbar .row .btn{min-height:44px;margin:3px 0}.retry{min-height:62px;font-size:23px}.stats{gap:6px;margin:8px 0}.stat{padding:5px 4px}.stat b{font-size:19px}.stat span{letter-spacing:.5px}.sumhead{font-size:clamp(30px,9vw,48px)}}
 .chip{display:inline-flex;align-self:center;align-items:center;gap:8px;min-height:44px;padding:8px 14px;margin:2px auto 6px;border-radius:99px;border:1.5px solid var(--line);background:rgba(var(--t-x14183c-rgb),.7);color:var(--fg);font:800 13px/1 inherit;font-family:inherit;letter-spacing:1px;cursor:pointer;touch-action:manipulation}
 .near.big{font-size:22px;color:var(--t-gold);font-weight:900;margin:6px 0}
 .knotbar{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:900;color:var(--t-xffb0ff);letter-spacing:1px;margin:6px 0}.knotbar .bar{flex:1;margin:0}.knotbar .bar i{background:var(--t-boss)}
-.reel.r0{border-color:var(--t-uiDim);box-shadow:0 0 10px rgba(var(--t-uiDim-rgb),.4)}.reel.r1{border-color:var(--t-uiBlue);box-shadow:0 0 14px rgba(var(--t-uiBlue-rgb),.6)}.reel.r2{border-color:var(--t-uiPurple);box-shadow:0 0 18px rgba(var(--t-uiPurple-rgb),.7)}.reel.r3{border-color:var(--gold);box-shadow:0 0 24px rgba(var(--t-gold-rgb),.8)}
-.rl0{color:var(--t-uiText)}.rl1{color:var(--t-x7cc4ff)}.rl2{color:var(--t-xdba2ff)}.rl3{color:var(--gold)}
 .modal{position:fixed;inset:0;z-index:9;background:rgba(var(--t-x02020a-rgb),.97);display:flex;flex-direction:column;align-items:center;overflow-y:auto;padding:calc(14px + var(--sat)) 16px calc(16px + var(--sab));pointer-events:auto;touch-action:pan-y}
 .modal>*{flex-shrink:0}
 .modal img{width:min(100%,340px);border-radius:14px;border:1px solid var(--line);margin:8px 0;-webkit-touch-callout:default;user-select:auto}
@@ -1605,7 +1598,8 @@ function advance(realDt){if(!R)return;
     if(R.started&&R.lifted&&!R.over){R.liftT+=realDt;if(!R.postCount)R.timeScale=Math.max(0.25,R.timeScale-realDt*7.5);if(R.liftT>=2){toLiftPause();return;}}
     else if(R.timeScale<1){R.timeScale=Math.min(1,R.timeScale+realDt*2.5);}
     if(R.over){R.endDelay-=realDt;if(R.endDelay<=0){endRun();return;}}
-    // user request: 2 s 'get ready' countdown after a level-up/chest pick; sim frozen, thumb may be placed (no lift-pause, no thin stamp)
+    // user request: 2 s 'get ready' countdown after a level-up/chest pick; sim frozen, thumb may be placed (no lift-pause, no thin stamp).
+    // r14 TIDY-1: nothing sets R.countT any more (the last overlay that did, the chest, is gone): it reads 0 forever; the plumbing is kept (spec LOOP-5).
     // r10: the game always resumes at full speed. A thumb placed after the countdown no longer meets the lift slow-mo (0.25x easing back at 2.5/s:
     // on a device that read as ~1 s of 'lag' after every pick); R.postCount holds full speed until the first touch. The 2 s lift-pause still applies.
     if(R.countT>0){const pc=Math.ceil(R.countT);R.countT-=realDt;R.liftT=0;if(R.drawing||R.dashing)catchUpOn();if(R.countT>0&&Math.ceil(R.countT)<pc)SFX.click();if(R.countT>0)return;R.countT=0;R.timeScale=1;R.postCount=R.lifted;}
@@ -1734,9 +1728,9 @@ function render(realDt){menuT+=realDt;
   if(!R||(R.over&&state!=='run'&&state!=='summary')){setVig(0,0);const mw=Math.round(L.W),mh=Math.round(L.H);if(cv.width!==mw||cv.height!==mh){cv.width=mw;cv.height=mh;menuDirty=true;}
     menuAcc+=realDt;if(menuDirty||(nowMs()-lastInputT<3000&&menuAcc>=1/30)){menuAcc=0;menuDirty=false;ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle=TH.bg;ctx.fillRect(0,0,cv.width,cv.height);drawMenuBg(1);}return;}
   menuDirty=true;let sized=false;{const gw=Math.round(L.W*L.DPR),gh=Math.round(L.H*L.DPR);if(cv.width!==gw||cv.height!==gh){cv.width=gw;cv.height=gh;sized=true;}}
-  // r7 perf: under a level-up / chest / pause overlay the game is frozen: once the last flash has faded (0.4 s) the canvas keeps its picture
+  // r7 perf: under the pause overlay (r14 TIDY-1: the level-up and chest overlays are gone) the game is frozen: once the last flash has faded (0.4 s) the canvas keeps its picture
   // instead of repainting every frame (each repaint also re-ran the overlay's full-screen backdrop blur). A resize or layout() repaints.
-  if(state==='chest'||state==='pause'){ovT+=realDt;if(ovT>0.4&&!sized&&!ovForce)return;}else ovT=0;ovForce=false;
+  if(state==='pause'){ovT+=realDt;if(ovT>0.4&&!sized&&!ovForce)return;}else ovT=0;ovForce=false;
   const sh=save.settings.shake?R.trauma*R.trauma*12:0;shx=sh?(Math.random()*2-1)*sh:0;shy=sh?(Math.random()*2-1)*sh:0;
   const pox=R.world===2?w2ParOff():0;   /* GARDEN-4: World 2 blanket parallax (device px); 0 in World 1 */
   if(BG){if(shx||shy||pox){ctx.fillStyle=TH.bg;ctx.fillRect(0,0,cv.width,cv.height);}ctx.drawImage(BG,Math.round(shx*L.DPR)+pox,Math.round(shy*L.DPR));}else{ctx.fillStyle=TH.bg;ctx.fillRect(0,0,cv.width,cv.height);}
@@ -2035,7 +2029,7 @@ function drawHUD(){const W=L.W,H=L.H,C=R.core;ctx.textBaseline='middle';
 
 /* ---------------- UI ---------------- */
 const ui=document.getElementById('ui'),pb=document.getElementById('pb'),toastEl=document.getElementById('toast');
-let state='title',uiLock=0,navI=0,selWire=save.lastWire||'copper',settingsFrom='title',chestS=null,countUps=[],replay=null,lastSummary=null,resetArm=0;
+let state='title',uiLock=0,navI=0,selWire=save.lastWire||'copper',settingsFrom='title',countUps=[],replay=null,lastSummary=null,resetArm=0;
 function setState(s){state=s;document.body.dataset.state=s;}
 // r5 #1: the service worker refreshes the page in the background and says 'lh-updated' when a new build was cached
 let updReady=false,updShown=false;function updToast(){if(updReady&&!updShown&&(state==='title'||state==='summary')){updShown=true;toast('UPDATE READY','Restart LOOPHOLE to play the new version');}}
@@ -2454,11 +2448,9 @@ function orbLoop(xs,ys,n){ORB_TK.length=0;let g=0,big=false,sx=0,sy=0;
 // expiry: lowest colour level, then nearest the Core, then ORBS order
 function orbAutoPick(){const C=R.core;let best=null,bl=99,bd=1e18,bi=99;for(const o of ORBP){if(!o.on||o.fx)continue;const l=olv(o.id),dx=o.x-C.x,dy=o.y-C.y,d=dx*dx+dy*dy,i=ORBS.indexOf(ORB_BY[o.id]);
   if(l<bl||(l===bl&&(d<bd||(d===bd&&i<bi)))){best=o;bl=l;bd=d;bi=i;}}return best;}
-const COUNTDOWN=2;   /* the get-ready countdown after the chest overlay (only __lh.chest opens it); r13 LOOP-5: the level-up overlay is gone */
 const CHEST_MAX_RUN=2,CHEST_LATE_SHARDS=10;   // r12 SIMPLE-4: chests per run (later elites pay CHEST_LATE_SHARDS into the run tally instead)
-function resumeFromOverlay(){show('');lockUI(250);setState('run');if(R){R.lifted=true;R.liftT=0;if(R.started&&!R.over)R.countT=COUNTDOWN;}}
 /* chest */
-/* r12 SIMPLE-4: the reward roll, shared by the in-arena chest (openChestInline) and the reel overlay (openChest, kept for __lh.chest and the bots) */
+/* r12 SIMPLE-4: the reward roll of the in-arena chest (openChestInline); r14 TIDY-1: the reel overlay that also used it is gone */
 function rollChest(n,quiet){const rewards=[],before={};
   /* r13 LOOP-1: evolutions come from orbGain (LOOP-4: in World 2 too; its card-pair evolution path is gone) */
   {while(rewards.length<n){const pool=ORBS.filter(o=>olv(o.id)<ORB_MAX);if(!pool.length){R.extraShards=(R.extraShards||0)+25;rewards.push({id:'shard',n:'+25 Shards',rar:0});continue;}const o=pool[Math.floor(R.rC()*pool.length)];orbGain(o.id,1,'chest');rewards.push({id:o.id,orb:true,n:o.w,rar:0});}}   /* r13 LOOP-1: colour levels (LOOP-4: both worlds; the card loop below no longer runs) */
@@ -2468,27 +2460,15 @@ function rollChest(n,quiet){const rewards=[],before={};
     if(rw.orb){lines.push({t:'+'+rewards.filter(x=>x.orb&&x.id===rw.id).length+' '+rw.n,rar:0,orb:true});continue;}   /* r13 LOOP-1: interim words ('+1 HARDER') until LOOP-2's gifts */
     const b=before[rw.id],a=lv(rw.id),mx=CARD_BY[rw.id].max;lines.push({t:CARD_BY[rw.id].n+(b?' Lv '+b+' → '+a:' NEW · Lv '+a)+(a>=mx?' (MAX)':''),rar:b===0?1:(a>=mx?2:0)});}
   return{rewards,lines};}
-function openChest(forceN){interruptInput();const r=R.rD();const n=forceN||(r<0.05?5:r<0.30?3:1);const {rewards,lines}=rollChest(n,true);
-  chestS={t:0,n,rewards,lines,stopped:0,ticks:0,done:false};setState('chest');buzz([30,30,30]);
-  show(`<div class="scr dim" style="padding-bottom:calc(110px + var(--sab))"><div class="col" style="margin-top:auto"><h2 style="color:${TH.gold}">CHEST</h2><div id="jack"></div><div class="reels">${rewards.map((_,i)=>`<div class="reel" id="reel${i}"></div>`).join('')}</div><div id="chestRes" class="sub" style="min-height:60px;font-size:15px;font-weight:800"></div></div>
-  <div class="pinbar"><div style="width:100%;max-width:520px"><button class="btn primary" data-a="collect" id="collectBtn" style="visibility:hidden">COLLECT</button><div class="sub" id="tapany" style="visibility:hidden">or tap anywhere</div></div></div></div>`);fitPinbar();}
 /* r12 SIMPLE-4: a chest opens where the box reaches the Core: rewards fly out as popups (cached text sprites), no overlay, no tap, no countdown.
-   An evolution keeps its moment as the EVOLUTION banner (applyEvo, with its sound); a jackpot posts a JACKPOT! banner. */
-function openChestInline(x,y){R.chestsOpened++;const r=R.rD();const n=r<0.05?5:r<0.30?3:1;const {rewards,lines}=rollChest(n,false);const evo=rewards.some(w=>w.evo);
+   An evolution keeps its moment as the EVOLUTION banner (applyEvo, with its sound); a jackpot posts a JACKPOT! banner.
+   r14 TIDY-1: forceN (TEST only, __lh.chest(n)) fixes the reward count; the R.rD() draw is still made, so the stream matches a natural chest. */
+function openChestInline(x,y,forceN){R.chestsOpened++;const r=R.rD();const n=forceN||(r<0.05?5:r<0.30?3:1);const {rewards,lines}=rollChest(n,false);const evo=rewards.some(w=>w.evo);
   hitstop(60);ring(x,y,10,120,0.4,TH.gold,4);if(n===5||!evo)SFX.chestResult(n===5);buzz([30,30,30]);
-  const cols=[TH.uiText,TH.x7cc4ff,TH.xdba2ff,TH.gold];   /* the overlay's .rl0-.rl3 colours; lines start 26 u above the Core so they never cover it */
+  const cols=[TH.uiText,TH.x7cc4ff,TH.xdba2ff,TH.gold];   /* the old overlay's reward-line colours (r14 TIDY-1: the overlay is gone); lines start 26 u above the Core so they never cover it */
   let pk=0;for(let k=0;k<lines.length;k++){if(lines[k].orb)continue;popup(x,y-26-18*pk,lines[k].t,13,cols[lines[k].rar]||TH.gold,1.6,-30);pk++;}
   {let gn=0;for(const rw of rewards)if(rw.orb)gn++;let gk=0;for(const rw of rewards){if(!rw.orb)continue;const a=-Math.PI/2+(gk-(gn-1)/2)*0.7;orbAdd(rw.id,x+Math.cos(a)*34,y+Math.sin(a)*34,false,true);gk++;}}   /* r13 LOOP-2: one gift per colour level, out of the box and into the Core */
   if(n===5){banner('JACKPOT!','',TH.gold,1.6,true);unlockAch('jack');confetti(40);}}
-function chestTick(dt){if(!chestS||state!=='chest')return;const S=chestS;S.t+=dt;
-  for(let i=0;i<S.n;i++){const stopAt=0.8+i*(0.7/Math.max(1,S.n-1));const el=document.getElementById('reel'+i);if(!el)continue;
-    if(S.t<stopAt){if(((S.t*14)|0)!==el._k){el._k=(S.t*14)|0;{const o=ORBS[(Math.random()*ORBS.length)|0];el.innerHTML=svgIcon(o.ic,TH[o.role],34);}   /* r13 LOOP-4: both worlds' reels flash the colours */}}
-    else if(!el._stop){el._stop=1;const rw=S.rewards[i];el.classList.add('stop','r'+(rw.rar||0));el.innerHTML=rw.orb?svgIcon(ORB_BY[rw.id].ic,TH[ORB_BY[rw.id].role],38):svgIcon(rw.id,rw.evo?TH.gold:(CARD_BY[rw.id]?CARD_BY[rw.id].col:TH.gold),38);S.stopped++;SFX.reelStop();}}
-  const tk=Math.min(12,(S.t/1.5*12)|0);while(S.ticks<tk){SFX.tick(S.ticks);S.ticks++;}
-  if(!S.done&&S.t>=1.5){S.done=true;S.doneAt=nowMs();if(S.rewards.some(r=>r.evo))SFX.evolution();if(S.n===5||!S.rewards.some(r=>r.evo))SFX.chestResult(S.n===5);const res=document.getElementById('chestRes');if(res)res.innerHTML=S.lines.map(l=>`<div class="rl${l.rar}">${esc(l.t)}</div>`).join('');
-    if(S.n===5){const j=document.getElementById('jack');if(j)j.innerHTML='<div class="jack">JACKPOT!</div>';unlockAch('jack');confetti(40);}
-    const b=document.getElementById('collectBtn');if(b)b.style.visibility='visible';const ta=document.getElementById('tapany');if(ta)ta.style.visibility='visible';lockUI(300);}}
-function collectChest(){if(!chestS||!chestS.done)return;chestS=null;SFX.click();resumeFromOverlay();}   /* r13 LOOP-5: a pending level drops its orbs once the run resumes (the advance gate) */
 /* pause */
 function pauseGame(){if(!R||(state!=='run'&&state!=='liftpause'))return;if(R.over){A.suspend();if(state==='liftpause')setState('run');return;}interruptInput();A.suspend();showPause();}
 // r11: rows instead of a bare icon grid. live=true (pause) adds each card's current numbers; the summary shows plain words + impact only
@@ -2509,7 +2489,7 @@ function showPause(){setState('pause');A.suspend();const build=orbSheet(R.olv,Ob
   <button class="btn primary" data-a="resume" style="margin-top:14px">RESUME</button><div class="row"><button class="btn small" data-a="restart">RESTART</button><button class="btn small" data-a="psettings">SETTINGS</button><button class="btn small" data-a="quit">QUIT</button></div></div></div>`);lockUI(350);}
 function toLiftPause(){setState('liftpause');if(R){R.lifted=true;}}
 /* run lifecycle */
-function startRun(wireId,opts){A.init();A.resume();A.unduck();chestS=null;countUps=[];replay=null;show('');closeShare();try{document.querySelectorAll('.conf').forEach(e=>e.remove());}catch(e){}
+function startRun(wireId,opts){A.init();A.resume();A.unduck();countUps=[];replay=null;show('');closeShare();try{document.querySelectorAll('.conf').forEach(e=>e.remove());}catch(e){}
   newRun(wireId,opts||{});if(!R.daily)save.lastWire=R.wireId;acc=0;IN.down=false;IN.id=-1;TEST_DIRECT.on=false;Music.step=0;setState('liftpause');}
 // r5 #24: what did most of the damage over the last 15 s (if it was not the finisher and did at least half of it)
 const WORN={miniknot:'mini-Knots',mote:'Motes',dart:'Darts',snipper:'Snippers',bulwark:'Bulwarks',mitosis:'Mitosis',lobber:'Lobbers',prism:'Prisms',echo:'Echoes',mini:'Mitosis minis',bolt:'Lobber bolts',needle:'Knot needles',boss:'The Knot',dusk:'the Duskwing'};
@@ -2624,7 +2604,7 @@ function showSummary(S){if(S.ot)return showOTSummary(S);setState('summary');coun
   replay=S.poly&&S.poly.length>=6?{poly:S.poly,t:0}:null;lockUI(350);if(!again&&(S.newBest||S.newly.length||S.stakeCleared))setTimeout(()=>{if(state==='summary'&&lastSummary===S)confetti(50);},700);updToast();}
 function clearConfetti(){try{document.querySelectorAll('.conf').forEach(e=>e.remove());}catch(e){}}
 function confetti(n){const cols=[TH.cyan,TH.pink,TH.gold,TH.heal,TH.violet];for(let i=0;i<n;i++){const d=document.createElement('div');d.className='conf';d.style.left=(Math.random()*100)+'vw';d.style.background=cols[i%5];d.style.setProperty('--dx',((Math.random()-0.5)*200)+'px');d.style.animationDuration=(1.6+Math.random()*1.6)+'s';d.style.animationDelay=(Math.random()*0.4)+'s';document.body.appendChild(d);setTimeout(()=>{try{d.remove();}catch(e){}},3800);}}
-function uiTick(dt){chestTick(dt);
+function uiTick(dt){
   for(const c of countUps){if(c.t>=1)continue;c.t=Math.min(1,c.t+dt/1.1);const e=1-Math.pow(1-c.t,3);const v=c.to*e;c.el.textContent=c.f==='t'?fmtTime(v):fmtN(v);}
   if(replay&&state==='summary'){const el=document.getElementById('replay');if(el){const g=el.getContext('2d');replay.t+=dt;const p=replay.poly,n=p.length/2;let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(let i=0;i<n;i++){x0=Math.min(x0,p[i*2]);x1=Math.max(x1,p[i*2]);y0=Math.min(y0,p[i*2+1]);y1=Math.max(y1,p[i*2+1]);}
     const sc=Math.min(260/Math.max(1,x1-x0),160/Math.max(1,y1-y0));const ox=150-(x0+x1)/2*sc,oy=100-(y0+y1)/2*sc;const cyc=2.4,t=replay.t%cyc,prog=Math.min(1,t/1.4);
@@ -2728,7 +2708,6 @@ function act(a,v,el){if(state==='title'||a==='start'||a==='retry'||a==='play'||a
   
   case 'reset':if(resetArmed()&&nowMs()-resetArm>=RESET_MIN){const keep=save.settings;save=defSave();save.settings=keep;writeSave(true);resetArm=0;toast('Progress erased');showTitle();}
     else if(!resetArmed()){resetArm=nowMs();lockUI(700);SFX.click();buzz(30);setResetLabel();setTimeout(setResetLabel,RESET_WIN+50);}break;
-  case 'collect':collectChest();break;
   case 'resume':A.resume(()=>SFX.resume());show('');if(R&&R.over){setState('run');}else toLiftPause();lockUI(350);break;
   case 'restart':startRun(R.wireId,{daily:R.daily,stake:R.stake});break;
   case 'quit':if(R&&!R.over){R.over=true;R.quit=true;}endRun();break;
@@ -2743,22 +2722,21 @@ function fireRetry(id,x,y){A.init();A.resume();
 ui.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.closest('[data-a=retry]');if(!b||state!=='summary')return;if(e.pointerType==='mouse'&&e.button!==0)return;e.preventDefault();
   if(nowMs()<uiLock){retryPend={id:e.pointerId,x:e.clientX,y:e.clientY,gen:scrGen};return;}fireRetry(e.pointerId,e.clientX,e.clientY);},{passive:false});
 // A UI activation needs a press that STARTED on the current screen (scrGen): a thumb held on the canvas while an overlay
-// opens must never pick a card / collect a chest / skip the summary when it lifts (browsers synthesize a click there).
+// opens must never pick a card / collect a chest / skip the summary when it lifts (browsers synthesize a click there). r14 TIDY-1: of those
+// overlays only the summary is left (level-ups and chests happen in the arena); the rule still guards every screen.
 let press=null,uiDown=null,clickSup=0;
 // WP-C world selector swipe (taps are handled by the normal press path; a swipe moves > 40 px, so the two never both fire)
 let wSwipe=null;ui.addEventListener('pointerdown',e=>{wSwipe=state==='title'&&e.target.closest&&e.target.closest('#wsel')?{id:e.pointerId,x:e.clientX,y:e.clientY,gen:scrGen}:null;});
 ui.addEventListener('pointerup',e=>{const s0=wSwipe;wSwipe=null;if(!s0||e.pointerId!==s0.id||s0.gen!==scrGen||nowMs()<uiLock)return;const dx=e.clientX-s0.x,dy=e.clientY-s0.y;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5){clickSup=nowMs()+450;act('world',dx<0?2:1);}});
 ui.addEventListener('pointerdown',e=>{const b=e.target.closest?e.target.closest('[data-a]'):null;press={id:e.pointerId,el:b,x:e.clientX,y:e.clientY,t:nowMs(),gen:scrGen};uiDown=press;});
-const chestTapOk=p=>!!(chestS&&chestS.done&&p&&p.t>=(chestS.doneAt||0));
 ui.addEventListener('pointerup',e=>{const p=press;if(!p||e.pointerId!==p.id)return;press=null;if(nowMs()-p.t>600||Math.hypot(e.clientX-p.x,e.clientY-p.y)>12)return;if(nowMs()<uiLock||p.gen!==scrGen)return;
-  if(state==='chest'&&chestS&&chestS.done){if(chestTapOk(p)){clickSup=nowMs()+450;collectChest();}return;}
   const b=p.el;if(!b||b.disabled||!b.isConnected||b.dataset.a==='retry')return;clickSup=nowMs()+450;A.wake();try{act(b.dataset.a,b.dataset.v,b);}catch(err){console.error('LOOPHOLE ui error',err);}});
 // Keyboard/assistive/programmatic activation: no click count AND no pointer type. (Chrome's click synthesized from a held touch whose
 // pressed element was removed has detail 0 but pointerType 'touch' — that one must be gated.)
 const kbClick=e=>e.detail===0&&!e.pointerType;
 ui.addEventListener('click',e=>{if(nowMs()<clickSup||nowMs()<uiLock)return;const kb=kbClick(e),d=uiDown;
   if(!kb&&!(d&&d.gen===scrGen&&nowMs()-d.t<2000))return;
-  if(state==='chest'&&chestS&&chestS.done){if(kb||chestTapOk(d))collectChest();return;}const b=e.target.closest('[data-a]');if(!b||b.disabled)return;if(!kb&&d.el!==b)return;A.wake();try{act(b.dataset.a,b.dataset.v,b);}catch(err){console.error('LOOPHOLE ui error',err);}});
+  const b=e.target.closest('[data-a]');if(!b||b.disabled)return;if(!kb&&d.el!==b)return;A.wake();try{act(b.dataset.a,b.dataset.v,b);}catch(err){console.error('LOOPHOLE ui error',err);}});
 let pbPress=null,pbSup=0;
 pb.addEventListener('pointerdown',e=>{pbPress={id:e.pointerId,t:nowMs(),x:e.clientX,y:e.clientY};e.stopPropagation();});
 pb.addEventListener('pointerup',e=>{const p=pbPress;if(!p||p.id!==e.pointerId)return;pbPress=null;pbSup=nowMs()+450;if(Math.hypot(e.clientX-p.x,e.clientY-p.y)>24)return;pauseGame();});
@@ -2814,7 +2792,6 @@ window.addEventListener('keydown',e=>{const k=e.key;
   switch(state){
     case 'run':case 'liftpause':if(k==='Escape'||k==='p'||k==='P')pauseGame();break;
     case 'pause':if(k==='Escape'||k==='p'||k==='P'||k==='Enter')act('resume');break;
-    case 'chest':if(k==='Enter'||k===' ')collectChest();break;
     case 'summary':if(k===' '||k==='Enter'||k==='r'||k==='R')act('retry');else if(k==='Escape')act('title');break;
     case 'title':if(k==='Enter'||k===' ')act('play');break;
     case 'wires':{const un=WIRES.filter(w=>save.unlocked[w.id]);let i=un.findIndex(w=>w.id===selWire);if(k==='ArrowLeft'||k==='ArrowUp'){selWire=un[(i+un.length-1)%un.length].id;showWires();}else if(k==='ArrowRight'||k==='ArrowDown'){selWire=un[(i+1)%un.length].id;showWires();}else if(k==='Enter'||k===' ')act('start');else if(k==='Escape')act('title');break;}
@@ -2843,7 +2820,7 @@ function autoQuality(dt,raw){if(Q.force||Q.capped||state!=='run')return;const sp
 function fxTick(dt,raw){if(state==='run'){Q.runT+=dt;if(dt>=0.05&&raw<0.25&&Q.runT>0.5)Q.fxK=Math.max(0.4,Q.fxK*0.75);else Q.fxK=Math.min(1,Q.fxK+0.1*dt);}else Q.runT=0;}
 function frame(){requestAnimationFrame(frame);try{const t=nowMs();let dt=(t-lastT)/1000;lastT=t;const raw=dt;if(dt>0.1)dt=0.1;if(dt<0)dt=0;
   autoQuality(dt,raw);fxTick(dt,raw);Q.fdt+=(Math.min(raw,0.05)-Q.fdt)*0.05;hiHz=Q.fdt<0.0125;if(Q.pendLayout&&state!=='run'){Q.pendLayout=false;layout();}pollPend();
-  if(state!=='run'&&state!=='liftpause'&&state!=='chest'&&nowMs()-lastInputT>5000&&A.on())A.suspend();   /* r5 #41: idle menus let the audio engine sleep (the next tap wakes it) */
+  if(state!=='run'&&state!=='liftpause'&&nowMs()-lastInputT>5000&&A.on())A.suspend();   /* r5 #41: idle menus let the audio engine sleep (the next tap wakes it) */
   if(testAuto)advance(dt);uiTick(dt);realFx(dt);render(dt);audioFrame(dt);}
   catch(err){console.error('LOOPHOLE frame error:',err);}}
 
@@ -3131,7 +3108,7 @@ if(TEST){const stepF=n=>{for(let i=0;i<n;i++){advance(1/60);uiTick(1/60);realFx(
     enemies(){return aliveCount();},
     clear(){for(let i=0;i<nE;i++){E[i].alive=false;E[i].dying=0;}nE=0;nB=0;},
     pick(i){const os=ORBP.filter(o=>o.on&&!o.fx);if(os.length){if(os[i||0])orbTake(os[i||0],'test');}return state;},   // r13 LOOP-2: take live orb i as if looped (LOOP-5: no card overlay left to pick from)
-    chest(n){if(R&&R.started&&(state==='run'||state==='liftpause')){openChest(n);}return state;},
+    chest(n){if(R&&R.started&&(state==='run'||state==='liftpause')){openChestInline(R.core.x,R.core.y,n);}return state;},   // r14 TIDY-1: an in-arena chest at the Core with n rewards (no overlay is left)
     xp(n){if(R)gainXP(n);return R?R.pendingLv:0;},
     bolt(x,y,vx,vy,kind){if(R)fireBolt(x,y,vx,vy,kind?10:LOB_BOLT_DMG,kind?1:0);},
     goals:()=>nextGoals(3),
@@ -3149,7 +3126,7 @@ if(TEST){const stepF=n=>{for(let i=0;i<n;i++){advance(1/60);uiTick(1/60);realFx(
       parts.push('L'+R.olv.hit+R.olv.len+R.olv.hp);
       const str=parts.join('|');let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16)+':'+str.length;},
     shareText:()=>shareText(),
-    collect(){if(state==='chest'&&chestS){chestS.t=2;chestTick(0.01);uiLock=0;collectChest();}return state;},
+    collect(){return state;},   // r14 TIDY-1: no-op (no chest overlay to collect); kept so old harness loops still run
     retry(){uiLock=0;act('retry');return state;},
     resume(){uiLock=0;act('resume');return state;},
     auto(b){testAuto=!!b;},
@@ -3166,7 +3143,7 @@ if(TEST){const stepF=n=>{for(let i=0;i<n;i++){advance(1/60);uiTick(1/60);realFx(
     orbSpr:()=>ORB_SPR,   // TEST: the baked orb sprites (flow 146 counts their blits)
     orbHud:()=>ORB_HUD,   // TEST: r13 LOOP-3 the baked strip pip sprites (flow 147 counts their blits)
     orbDrop(){if(!R)return 0;R.pendingLv++;dropOrbs();return nOrbs();},
-    r13:{dead(){const t={doLevelUp:typeof doLevelUp,renderLevelUp:typeof renderLevelUp,cardHTML:typeof cardHTML,pickCard:typeof pickCard,offerBell:typeof offerBell,rollRarity:typeof rollRarity,RAR_TXT:typeof RAR_TXT,LV_ONLY:typeof LV_ONLY,cardPreview:typeof cardPreview,evosOf:typeof evosOf,evoKnown:typeof evoKnown,evoEligible:typeof evoEligible,finePtr:typeof finePtr,rollCards:typeof rollCards,curCards:typeof curCards,cardSel:typeof cardSel};return{fns:Object.keys(t).filter(k=>t[k]!=='undefined'),r:R?['rerolls','tutCards','keepOffer'].filter(k=>k in R):null};}},   // TEST: r13 LOOP-5 which legacy level-up names still exist (flow 150)
+    r13:{dead(){const t={doLevelUp:typeof doLevelUp,renderLevelUp:typeof renderLevelUp,cardHTML:typeof cardHTML,pickCard:typeof pickCard,offerBell:typeof offerBell,rollRarity:typeof rollRarity,RAR_TXT:typeof RAR_TXT,LV_ONLY:typeof LV_ONLY,cardPreview:typeof cardPreview,evosOf:typeof evosOf,evoKnown:typeof evoKnown,evoEligible:typeof evoEligible,finePtr:typeof finePtr,rollCards:typeof rollCards,curCards:typeof curCards,cardSel:typeof cardSel,openChest:typeof openChest,chestTick:typeof chestTick,collectChest:typeof collectChest,resumeFromOverlay:typeof resumeFromOverlay,COUNTDOWN:typeof COUNTDOWN,chestTapOk:typeof chestTapOk,chestS:typeof chestS};return{fns:Object.keys(t).filter(k=>t[k]!=='undefined'),names:Object.keys(t),r:R?['rerolls','tutCards','keepOffer'].filter(k=>k in R):null};}},   // TEST: r13 LOOP-5 which legacy level-up names still exist (flow 150); r14 TIDY-1 adds the chest overlay's (flow 155)
     save:()=>save,
   };}
 if(TEST&&window.__lh&&window.__lh.w2&&WSIM.testHooks)Object.assign(window.__lh.w2,WSIM.testHooks());   // WP-A: __lh.w2.spawn/forceEvent/steam/yarnPair/... (own line: tools/balance/patch.js anchors on the line above)
