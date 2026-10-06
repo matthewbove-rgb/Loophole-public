@@ -38,17 +38,17 @@ padding:calc(14px + var(--sat)) calc(16px + var(--sar)) calc(18px + var(--sab)) 
 background:linear-gradient(180deg,rgba(var(--t-x28326e-rgb),.55),rgba(var(--t-x0e1028-rgb),.85));color:var(--fg);font:800 17px/1.1 inherit;font-family:inherit;letter-spacing:2px;border-radius:14px;
 text-transform:uppercase;cursor:pointer;touch-action:manipulation;transition:transform .08s,box-shadow .15s,border-color .15s;outline:none}
 .btn:active{transform:scale(.97)}
-.btn:focus-visible,.card:focus-visible,.char:focus-visible,.chip:focus-visible,.pal:focus-visible,button.goal:focus-visible,button.pill2:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}   /* r5 #31 */
+.btn:focus-visible,.char:focus-visible,.chip:focus-visible,.pal:focus-visible,button.goal:focus-visible,button.pill2:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}   /* r5 #31 */
 .btn.primary{border-color:var(--cyan);box-shadow:0 0 18px rgba(var(--t-cyan-rgb),.35),inset 0 0 14px rgba(var(--t-cyan-rgb),.15);font-size:20px;min-height:60px}
 .btn.gold{border-color:var(--gold);box-shadow:0 0 18px rgba(var(--t-gold-rgb),.35),inset 0 0 14px rgba(var(--t-gold-rgb),.12)}
 .btn.small{min-height:48px;font-size:14px;letter-spacing:1px;padding:10px 12px}
-.btn.sel,.card.sel,.char.sel{border-color:var(--t-white)!important;box-shadow:0 0 0 2px rgba(var(--t-white-rgb),.65),0 0 22px rgba(var(--t-cyan-rgb),.5)!important}
+.btn.sel,.char.sel{border-color:var(--t-white)!important;box-shadow:0 0 0 2px rgba(var(--t-white-rgb),.65),0 0 22px rgba(var(--t-cyan-rgb),.5)!important}
 .btn[disabled]{opacity:.45}
 /* GARDEN-4: Crocheted Garden chrome (World 2 only): stitched borders instead of neon glow, no text halos */
 html[data-world="2"] .btn{border-style:dashed;border-radius:18px}
 html[data-world="2"] .btn.primary{box-shadow:0 0 0 3px rgba(var(--t-cyan-rgb),.18),inset 0 0 0 2px rgba(var(--t-cyan-rgb),.12)}
 html[data-world="2"] .btn.gold{box-shadow:0 0 0 3px rgba(var(--t-gold-rgb),.18),inset 0 0 0 2px rgba(var(--t-gold-rgb),.12)}
-html[data-world="2"] .card,html[data-world="2"] .item{border-style:dashed}
+html[data-world="2"] .item{border-style:dashed}
 html[data-world="2"] .logo,html[data-world="2"] h2,html[data-world="2"] .shards{text-shadow:none}
 html[data-world="2"] .logo::after{animation:none;opacity:0}
 .row{display:flex;gap:8px;width:100%}
@@ -65,27 +65,9 @@ h2{font-size:26px;letter-spacing:3px;text-align:center;margin:6px 0 12px;font-we
 .pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:1px;border:1px solid currentColor}
 .top{display:flex;justify-content:space-between;align-items:center;width:100%;gap:8px;margin-bottom:6px}
 .topbtn{min-height:48px;min-width:48px;width:auto;margin:0;padding:8px 14px;font-size:14px}
-/* cards */
-.cards{display:flex;flex-direction:column;gap:10px;width:100%;perspective:900px}
-@media (min-aspect-ratio:1/1) and (min-width:700px){.cards{flex-direction:row}.cards .card{flex:1;flex-direction:column;text-align:center}.cards .card .ic{margin:0 auto 6px}.cards .card .nh{justify-content:center}}
-.card{display:flex;align-items:center;gap:12px;border-radius:16px;border:2px solid var(--t-x9fb3d9);padding:12px;background:var(--panel);cursor:pointer;min-height:84px;touch-action:manipulation;
-opacity:0;animation:flip .38s cubic-bezier(.2,1.4,.4,1) forwards;color:var(--fg);text-align:left;font-family:inherit}
-@keyframes flip{0%{opacity:0;transform:rotateY(90deg) scale(.9)}100%{opacity:1;transform:none}}
-.card .ic{flex:0 0 52px;width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(var(--t-white-rgb),.05);border:1px solid rgba(var(--t-white-rgb),.12)}
-.card .nm{font-weight:900;font-size:17px;letter-spacing:1px}
-.card .lv{font-size:12px;color:var(--dim);font-weight:700;margin:2px 0}
-.card .ds{font-size:13px;line-height:1.3;color:var(--t-uiText)}
-.card .rar{font-size:11px;font-weight:900;letter-spacing:2px}
-/* r11 card readability: name + level pips on one row, then the pick's real numbers */
-.card .cb{min-width:0;flex:1}
-.card .nh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.card .nh .lv{margin:0;font-size:11px;letter-spacing:1px}
+/* level pips (pause and summary colour rows; r13 LOOP-5: the level-up card CSS is gone) */
 .lvp{display:inline-flex;gap:3px;vertical-align:middle}.lvp i{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(var(--t-white-rgb),.35)}
 .lvp i.on{background:var(--pc);border-color:var(--pc)}.lvp i.nw{border-color:var(--pc);box-shadow:0 0 6px var(--pc);background:rgba(var(--t-white-rgb),.85)}
-.card .sv{font-size:13px;font-weight:700;color:var(--dim);margin-top:3px;line-height:1.3}.card .sv b{color:var(--fg);font-weight:900}
-.r-common{border-color:var(--t-uiDim)}.r-common .rar{color:var(--t-uiDim)}
-.r-rare{border-color:var(--t-uiBlue);box-shadow:0 0 14px rgba(var(--t-uiBlue-rgb),.35)}.r-rare .rar{color:var(--t-uiBlue)}
-.r-epic{border-color:var(--t-uiPurple);box-shadow:0 0 20px rgba(var(--t-uiPurple-rgb),.45)}.r-epic .rar{color:var(--t-xd07bff)}
-.r-legendary{border-color:var(--gold);box-shadow:0 0 28px rgba(var(--t-gold-rgb),.6);background:linear-gradient(160deg,rgba(var(--t-x46370a-rgb),.92),rgba(var(--t-x0e0e1e-rgb),.95))}.r-legendary .rar{color:var(--gold)}
 .keyh{font-size:11px;color:var(--dim);text-align:center;margin-top:8px}
 /* chars */
 .chars{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
@@ -173,12 +155,8 @@ button.pill2,button.goal{font-family:inherit;cursor:pointer;touch-action:manipul
 .pill2{background:linear-gradient(180deg,rgba(var(--t-x5a4600-rgb),.95),rgba(var(--t-x281e00-rgb),.95));border:1.5px solid var(--gold);color:var(--t-goldPale);border-radius:99px;padding:5px 12px;font-weight:900;font-size:12px;letter-spacing:1px;box-shadow:0 0 12px rgba(var(--t-gold-rgb),.45);animation:pillin .45s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes pillin{0%{opacity:0;transform:scale(2.2)}100%{opacity:1;transform:none}}
 .bsub{display:block;font-size:11px;letter-spacing:.5px;color:var(--gold);font-weight:800;margin-top:2px;text-transform:none}
-.evoline{font-size:11px;font-weight:800;color:var(--t-xc9b6ff);margin-top:3px}.evoline.hot{color:var(--gold)}
 #rot{display:none;position:fixed;inset:0;z-index:10;background:var(--t-panel);color:var(--t-white);align-items:center;justify-content:center;text-align:center;font-size:20px;letter-spacing:2px;pointer-events:auto}
 @media (pointer:coarse) and (orientation:landscape) and (max-height:520px){#rot{display:flex}}
-.r-legendary{position:relative;overflow:hidden}
-.r-legendary::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(var(--t-xfff0b4-rgb),.38) 50%,transparent 70%);transform:translateX(-120%);animation:shim 1.7s ease-in-out .5s infinite;pointer-events:none}
-@keyframes shim{to{transform:translateX(120%)}}
 @media (pointer:coarse){.keyh{display:none}}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);display:inline-block;flex:0 0 9px}
 .pinbar{position:fixed;left:0;right:0;bottom:0;padding:10px calc(16px + var(--sar)) calc(12px + var(--sab)) calc(16px + var(--sal));display:flex;flex-direction:column;align-items:center;background:linear-gradient(180deg,rgba(var(--t-panel-rgb),0),rgba(var(--t-panel-rgb),.94) 30%);touch-action:none;pointer-events:auto}
@@ -199,7 +177,7 @@ button.pill2,button.goal{font-family:inherit;cursor:pointer;touch-action:manipul
 @keyframes sunrise{0%{background-position:0 0}100%{background-position:0 100%}}@keyframes sunup{0%{transform:translateY(160px);opacity:0}100%{transform:none;opacity:1}}@keyframes ctxin{0%,55%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}@keyframes crossfade{0%{opacity:0}100%{opacity:1}}
 .scr.opaque{background:radial-gradient(ellipse at 50% 30%,var(--t-x1a1240),var(--t-panel) 75%)}
 .again .stamp,.again .pill2{animation:none}
-@media (prefers-reduced-motion:reduce){.logo,.logo::after,.pill2,.stamp,.retry,.jack{animation:none}.r-legendary::after{animation:none;display:none}}
+@media (prefers-reduced-motion:reduce){.logo,.logo::after,.pill2,.stamp,.retry,.jack{animation:none}}
 @media (max-height:700px){.goal+.goal{display:none}.logo{font-size:clamp(40px,12vw,80px)}.ttop{margin-top:2vh}.tag{margin:6px 0 10px}.set{min-height:48px;margin:4px 0;padding:8px 12px}
 .pinbar .row .btn{min-height:44px;margin:3px 0}.retry{min-height:62px;font-size:23px}.stats{gap:6px;margin:8px 0}.stat{padding:5px 4px}.stat b{font-size:19px}.stat span{letter-spacing:.5px}.sumhead{font-size:clamp(30px,9vw,48px)}}
 .chip{display:inline-flex;align-self:center;align-items:center;gap:8px;min-height:44px;padding:8px 14px;margin:2px auto 6px;border-radius:99px;border:1.5px solid var(--line);background:rgba(var(--t-x14183c-rgb),.7);color:var(--fg);font:800 13px/1 inherit;font-family:inherit;letter-spacing:1px;cursor:pointer;touch-action:manipulation}
@@ -903,7 +881,7 @@ function newRun(wireId,opts){opts=opts||{};const daily=!!opts.daily;const world=
   if(pendingSeed!==null&&!daily){seed=pendingSeed>>>0;}
   const sh=save.shop;
   const r={world,wire,wireId:wire.id,daily,dailyDate:daily?todayStr():'',mod,seed,rS:mulberry32(seed),rC:mulberry32(seed^0x9e3779b9),rD:mulberry32(seed^0x85ebca6b),rE:mulberry32(seed^0x27d4eb2d),
-    tut:opts.tut!==undefined?!!opts.tut:!save.tut,tutCards:false,time:0,clockOn:false,started:false,
+    tut:opts.tut!==undefined?!!opts.tut:!save.tut,time:0,clockOn:false,started:false,
     level:1,xp:0,xpNext:xpReq(1),pendingLv:0,xpPulse:0,
     core:{x:AW/2,y:L.AH*0.68,hp:100,max:100,r:10,inv:0,hurt:0},
     cards:{},evos:{},cardOrder:[],imp:{},olv:{hit:0,len:0,hp:0},orbTaken:0,orbAuto:0,orbMulti:0,orbAll:0,orbSets:0,orbSetT:0,orbGapT:0,orbTeach:0,orbLes:0,
@@ -914,7 +892,7 @@ function newRun(wireId,opts){opts=opts||{};const daily=!!opts.daily;const world=
     timeScale:1,lifted:true,liftT:0,hitstop:0,trauma:0,lvFlash:0,slowmo:0,
     fadeT:0,dashing:false,drawing:false,tx:AW/2,ty:L.AH*0.68,
     over:false,overT:0,victory:false,endDelay:1.4,
-    rerolls:0/* r13 LOOP-4: no rerolls in either world (LOOP-5 deletes it) */,wind:(sh.wind||0)>0,
+    wind:(sh.wind||0)>0,
     banners:[],achNew:[],bossShards:0,
     vh:new Float32Array(8),vhI:0,speed:0,thinNow:false,catchUp:false,splits:[],catchN:-1,catchT:0,tsEff:1,staticT:0,teslaT:0,fidC:1,firstCut:true,firstLift:true,
     lastCapture:null,cutWhy:{},dmgDealt:0,minAreaHint:0,
@@ -944,7 +922,6 @@ function newRun(wireId,opts){opts=opts||{};const daily=!!opts.daily;const world=
   if(wire.twin)addCard('twin',1,1,true);
   if(mod&&mod.id==='mirror'||r.anom&&r.anom.id==='mirror')addCard('twin',1,1,true);   // r5 #21: stacks on Prism's own Twin (L2); addCard clamps to max
   recalc();r.core.hp=r.core.max;
-  r.tutCards=r.tut;
   if(r.tut){for(let i=0;i<5;i++){const a=i/5*TAU;const e=spawnE(T_MOTE,AW/2+Math.cos(a)*34,L.AH*TUT_Y+Math.sin(a)*30);if(e){e.sleep=true;e.hp=e.maxHp=10;}}}
   else if(r.w2first){r.clockOn=true;for(let i=0;i<5;i++){const a=i/5*TAU;const e=spawnE(T_MOTE,AW/2+Math.cos(a)*34,L.AH*0.36+Math.sin(a)*30);if(e)e.sleep=true;}banner('HEARTHGLOW','loop the sleeping Fluff',TH.heal,3,true);}   /* WP-B: first ever World 2 run (WORLD2.md §7) */
   else{r.clockOn=true;for(let i=0;i<8;i++){const a=i/8*TAU;const e=spawnE(T_MOTE,AW/2+Math.cos(a)*30,L.AH*0.32+Math.sin(a)*30);if(e)e.spd*=0.5;}}
@@ -989,7 +966,6 @@ function recalc(){const sh=save.shop,w=R.wire,m=R.mod?R.mod.id:'';
 function addCard(id,levels,ptsPer,silent){let c=R.cards[id];const def=CARD_BY[id];if(!c){c=R.cards[id]={lvl:0,pts:0};R.cardOrder.push(id);}
   const before=c.lvl;c.lvl=Math.min(def.max,c.lvl+levels);const gained=c.lvl-before;c.pts+=gained*ptsPer;
   if(id==='plating')R.core.hp+=CARD_PLATING_HP*gained;if(R.core)recalc();return gained;}
-function evoEligible(){const out=[];for(const ev of EVOS){if(R.evos[ev.id]||(ev.world&&ev.world!==R.world))continue;const a=CARD_BY[ev.a],b=CARD_BY[ev.b];const need=c=>c.max;if(lv(ev.a)>=need(a)&&lv(ev.b)>=need(b))out.push(ev);}return out;}
 function applyEvo(id,quiet){R.evos[id]=true;if(!quiet)SFX.evolution();const ev=EVO_BY[id];banner(ev.n,'',TH.gold,2.2,true);   /* r13: the name only, in both worlds (LOOP-4) */
   if(ev.world===2){save.w2.stats.evos[id]=1;}else if(!save.stats.evos[id]){save.stats.evos[id]=1;}unlockAch('evo');if(Object.keys(save.stats.evos).length>=4)unlockAch('evo4');recalc();}
 // r13 LOOP-1: gain colour levels (the headline stat lives in recalc; side effects are hidden card levels; evolutions follow automatically)
@@ -1130,7 +1106,7 @@ function resolveCapture(xs,ys,n,area,pct,primary){
     if(primary&&N>R.biggest){R.biggest=N;const st=Math.max(1,Math.floor(n/100));const arr=[];for(let i=0;i<n;i+=st)arr.push(Math.round(xs[i]),Math.round(ys[i]));R.bigPoly=arr;}}
   if(primary){R.lastCapture={count,killed,area:Math.round(area),points,tight,t:R.time,cx,cy};R.capEvents++;
     if(R.tut&&!R.clockOn&&killed>0&&!R.orbLes){if(R.world===1)R.orbLes=1;else tutGo(cx,cy);}   /* r13 LOOP-2b: World 1 teaches the orbs first (the lesson set drops on the next step, after this loop's own orb check) */
-    if(R.tut&&R.capEvents===3&&R.level===1){R.xp=Math.max(R.xp,R.xpNext);gainXP(0);R.tutCards=true;}}
+    if(R.tut&&R.capEvents===3&&R.level===1){R.xp=Math.max(R.xp,R.xpNext);gainXP(0);}}
   // Shockwave
   const sw=lv('shock');if(sw>0||R.evos.novafence){for(let i=0;i<nE;i++){const e=E[i];if(!e.alive||e.fid===fid)continue;if(e.x<x0-40-e.r||e.x>x1+40+e.r||e.y<y0-40-e.r||e.y>y1+40+e.r)continue;
       const d=edgeDistOK(xs,ys,n,e,40);if(d<0)continue;const dx=e.x-cx,dy=e.y-cy,dl=Math.sqrt(dx*dx+dy*dy)||1;e.kvx+=dx/dl*480;e.kvy+=dy/dl*480;dmgEnemy(e,CARD_SHOCK_DMG*Math.max(1,sw),sw>0?'shock':'novafence');}
@@ -1639,7 +1615,7 @@ function advance(realDt){if(!R)return;
     R.tsEff=ts;
     acc+=realDt*ts;let n=0;while(acc>=STEP&&n<5&&state==='run'){step(STEP);acc-=STEP;n++;if(R.hitstop>0)break;}
     if(n>=5)acc=0;
-    if(state==='run'&&!R.over&&!CINCH.on&&!(R.lvHold>0)){if(R.keep===2&&R.hitstop<=0&&!nOrbs()&&!(R.orbGapT>0)){R.keep=0;doKeepsake();}if(R.pendingLv>0&&R.hitstop<=0){if(orbsOn()){if(!nOrbs()&&!(R.orbGapT>0))dropOrbs();}else{doLevelUp();return;}}}
+    if(state==='run'&&!R.over&&!CINCH.on&&!(R.lvHold>0)){if(R.keep===2&&R.hitstop<=0&&!nOrbs()&&!(R.orbGapT>0)){R.keep=0;doKeepsake();}if(R.pendingLv>0&&R.hitstop<=0&&!nOrbs()&&!(R.orbGapT>0))dropOrbs();}
   }
 }
 // real-time (unscaled) visual decay, called once per rendered/test frame
@@ -1760,7 +1736,7 @@ function render(realDt){menuT+=realDt;
   menuDirty=true;let sized=false;{const gw=Math.round(L.W*L.DPR),gh=Math.round(L.H*L.DPR);if(cv.width!==gw||cv.height!==gh){cv.width=gw;cv.height=gh;sized=true;}}
   // r7 perf: under a level-up / chest / pause overlay the game is frozen: once the last flash has faded (0.4 s) the canvas keeps its picture
   // instead of repainting every frame (each repaint also re-ran the overlay's full-screen backdrop blur). A resize or layout() repaints.
-  if(state==='levelup'||state==='chest'||state==='pause'){ovT+=realDt;if(ovT>0.4&&!sized&&!ovForce)return;}else ovT=0;ovForce=false;
+  if(state==='chest'||state==='pause'){ovT+=realDt;if(ovT>0.4&&!sized&&!ovForce)return;}else ovT=0;ovForce=false;
   const sh=save.settings.shake?R.trauma*R.trauma*12:0;shx=sh?(Math.random()*2-1)*sh:0;shy=sh?(Math.random()*2-1)*sh:0;
   const pox=R.world===2?w2ParOff():0;   /* GARDEN-4: World 2 blanket parallax (device px); 0 in World 1 */
   if(BG){if(shx||shy||pox){ctx.fillStyle=TH.bg;ctx.fillRect(0,0,cv.width,cv.height);}ctx.drawImage(BG,Math.round(shx*L.DPR)+pox,Math.round(shy*L.DPR));}else{ctx.fillStyle=TH.bg;ctx.fillRect(0,0,cv.width,cv.height);}
@@ -2059,7 +2035,7 @@ function drawHUD(){const W=L.W,H=L.H,C=R.core;ctx.textBaseline='middle';
 
 /* ---------------- UI ---------------- */
 const ui=document.getElementById('ui'),pb=document.getElementById('pb'),toastEl=document.getElementById('toast');
-let state='title',uiLock=0,navI=0,selWire=save.lastWire||'copper',settingsFrom='title',curCards=[],cardSel=0,chestS=null,countUps=[],replay=null,lastSummary=null,resetArm=0;
+let state='title',uiLock=0,navI=0,selWire=save.lastWire||'copper',settingsFrom='title',chestS=null,countUps=[],replay=null,lastSummary=null,resetArm=0;
 function setState(s){state=s;document.body.dataset.state=s;}
 // r5 #1: the service worker refreshes the page in the background and says 'lh-updated' when a new build was cached
 let updReady=false,updShown=false;function updToast(){if(updReady&&!updShown&&(state==='title'||state==='summary')){updShown=true;toast('UPDATE READY','Restart LOOPHOLE to play the new version');}}
@@ -2398,24 +2374,9 @@ function resetArmed(){return resetArm>0&&nowMs()-resetArm<RESET_WIN;}
 function setResetLabel(){const b=state==='settings'&&ui.querySelector('[data-a=reset]');if(b)b.textContent=resetArmed()?'TAP AGAIN TO ERASE ALL PROGRESS':'RESET PROGRESS';}// in place: no re-render, no scroll jump
 function goBack(){if(settingsFrom==='pause'&&R&&!R.over&&state!=='title'){showPause();}else if(settingsFrom==='summary'&&lastSummary){showSummary(lastSummary);}else showTitle();}
 
-/* level-up cards */
-const RAR=['common','rare','epic','legendary'];
-// r5 #25: these effects read the card LEVEL, not its points, so RARE's '+50%' (1.5 pts) would do nothing: they never roll plain RARE
-// (same RNG draws as before; EPIC/LEGENDARY still add levels)
-const LV_ONLY={shock:1,implode:1,splice:1,tight:1,twin:1};
-function rollRarity(){const r=R.rC()*100;return r<2?3:r<12?2:r<40?1:0;}
-function rollCards(){if(!R.keepOffer){R.tutCards=false;const cs=ORBS.filter(o=>olv(o.id)<ORB_MAX).map(o=>({kind:'orb',id:o.id,rar:R.rC()<orbBigP()?2:0}));return cs.length?cs:[{kind:'heal',rar:0}];}   /* r13 LOOP-1: World 1 offers one colour per non-max colour (big = +2, one R.rC() each); no evolutions, rarity or tutorial limit. LOOP-4: all worlds (the overlay is unreachable; only __lh.chest's overlay and old hooks remain) */
-  const cards=[];let pool=[];const tutLimit=R.tutCards||R.keepOffer;R.tutCards=false;const keep=!!R.keepOffer;
-  for(const c of CARDS){if(lv(c.id)>=c.max)continue;if(c.world&&c.world!==R.world)continue;if(tutLimit&&!keep&&c.id!=='long'&&c.id!=='snap'&&c.id!=='live')continue;pool.push(c.id);}   /* Keepsake: any card, always common */
-  const evo=keep?[]:evoEligible();if(evo.length&&R.rC()<0.85){cards.push({kind:'evo',id:evo[Math.floor(R.rC()*evo.length)].id,rar:3});}
-  const wt=id=>{const ev=EVOS.find(x=>(x.a===id||x.b===id)&&!R.evos[x.id]);if(ev&&lv(ev.a===id?ev.b:ev.a)>0)return EVO_W_PARTNER;return R.cards[id]?EVO_W_OWNED:1;};
-  while(cards.length<3&&pool.length){let sum=0;for(const id of pool)sum+=wt(id);let r=R.rC()*sum,pick=0;for(let i=0;i<pool.length;i++){r-=wt(pool[i]);if(r<=0){pick=i;break;}}
-    const id=pool.splice(pick,1)[0];let rar=tutLimit?0:rollRarity();if(rar===1&&LV_ONLY[id])rar=0;cards.push({kind:'card',id,rar});}   // r5 #25
-  if(cards.length===0)cards.push({kind:'heal',rar:0},{kind:'shards',rar:1});
-  return cards;}
-// r11 card readability (first human feedback: 'too hard to track and see the impact of each buff'). Every card states its live numbers:
-// cardVals(id) = [label, value] rows for the CURRENT run state; cardPreview() applies a pick on the card table, recalcs, reads, then restores
-// (recalc is a pure function of R.cards/shop/wire/mods; the Core's hp/max are put back by hand) — UI only, no RNG, no sim state changes.
+/* card effects: live values, impact bookkeeping, level pips (r13 LOOP-5: the level-up card layer is gone; colours drive these cards as hidden levels) */
+// r11 card readability (first human feedback: 'too hard to track and see the impact of each buff'). cardVals(id) = [label, value] rows for the CURRENT
+// run state (the pause sheet's side-effect values); UI only, no RNG, no sim state changes.
 const cvP=v=>Math.round(v*100)+'%',cvS=v=>(v<0?'−':'+')+cvP(Math.abs(v)),cvT=v=>(+v.toFixed(2))+'s',cvN=v=>fmtN(Math.round(v));
 function cardVals(id){const l=lv(id),p=pts(id),no='—';switch(id){
   case 'long':return [['Wire length',cvN(R.maxLen)]];
@@ -2446,35 +2407,9 @@ function impAdd(id,k,v){if(!(v>0)||!R)return;const o=R.imp[id]||(R.imp[id]={});o
 const IMP_N={implode:'pulled in',hush:'calmed',slumber:'put to sleep',splice:'cuts halved'};
 function impTxt(id,o){if(!o)return '';const t=[];if(o.d>=1)t.push(cvN(o.d)+' dmg');if(o.h>=1)t.push(cvN(o.h)+' HP healed');if(o.c)t.push(cvN(o.c)+' captured');if(o.p)t.push('+'+cvN(o.p)+' pts');
   if(o.n)t.push(cvN(o.n)+' '+(IMP_N[id]||'hit'));if(o.s)t.push(cvN(o.s)+(o.s===1?' chain':' chains')+' saved');return t.join(' · ');}
-function cardPreview(id,levels,ptsPer){const c=R.cards[id],sv=c?[c.lvl,c.pts]:null,C=R.core,hp=C.hp,mx=C.max,now=cardVals(id);
-  const n=c||(R.cards[id]={lvl:0,pts:0}),to=Math.min(CARD_BY[id].max,n.lvl+levels);n.pts+=(to-n.lvl)*ptsPer;n.lvl=to;recalc();const next=cardVals(id);
-  if(sv){c.lvl=sv[0];c.pts=sv[1];}else delete R.cards[id];recalc();C.hp=hp;C.max=mx;
-  return now.map((r,i)=>[r[0],r[1],next[i][1]]);}
-// r13 LOOP-1: a colour's headline row in the run's own numbers; orbPreview applies n levels of the headline only (no side effects), reads, restores (UI only)
+// r13 LOOP-1: a colour's headline row in the run's own numbers (the pause sheet)
 const orbHead=id=>id==='hit'?['Loop damage',cvN(40*R.dmgMult)]:id==='len'?['Wire length',cvN(R.maxLen)]:['Max HP',cvN(R.core.max)];
-function orbPreview(id,n){const C=R.core,hp=C.hp,mx=C.max,sv=R.olv[id],a=orbHead(id);R.olv[id]=Math.min(ORB_MAX,sv+n);recalc();const b=orbHead(id);R.olv[id]=sv;recalc();C.hp=hp;C.max=mx;return [a[0],a[1],b[1]];}
 function pipsHTML(col,max,cur,to){let h='';for(let k=1;k<=max;k++)h+=`<i class="${k<=cur?'on':k<=to?'nw':''}"${k<=to?` style="--pc:${col}"`:''}></i>`;return `<span class="lvp">${h}</span>`;}
-// evolutions this card feeds in THIS world (W1 evolutions stay available in W2, so Shockwave and Live Wire can feed two); names reveal from the right world's save
-function evosOf(id){return EVOS.filter(x=>(x.a===id||x.b===id)&&!R.evos[x.id]&&(!x.world||x.world===R.world));}
-const evoKnown=ev=>ev.world===2?!!save.w2.stats.evos[ev.id]:!!save.stats.evos[ev.id];
-const RAR_TXT=['','50% stronger','+2 levels','+3 levels'];
-function cardHTML(c,i){let ic,nm,lvl='',ds,sv='',pp='';
-  if(c.kind==='evo'){const e=EVO_BY[c.id];ic=svgIcon(c.id,TH.gold,32);nm=e.n;lvl='EVOLUTION · '+CARD_BY[e.a].n+' + '+CARD_BY[e.b].n;ds=e.d;}
-  else if(c.kind==='heal'){ic=svgIcon('heal',TH.heal,32);nm='Patch Up';ds='Heal 40 HP';}
-  else if(c.kind==='shards'){ic=svgIcon('shard',TH.gold,32);nm='Shard Cache';ds='+25 Shards';}
-  else if(c.kind==='orb'){const o=ORB_BY[c.id],col=TH[o.role],cur=olv(c.id),to=Math.min(ORB_MAX,cur+(c.rar?2:1));ic=svgIcon(o.ic,col,32);nm=o.w;ds=o.d;pp=pipsHTML(col,ORB_MAX,cur,to);   /* r13 LOOP-1: a colour card */
-    const row=orbPreview(c.id,to-cur);sv=(([k,a,b])=>`<span>${esc(k)} ${a===b?`<b>${esc(b)}</b>`:`${esc(a)} → <b>${esc(b)}</b>`}</span>`)(row);}
-  else{const d=CARD_BY[c.id],cur=lv(c.id),add=[1,1,2,3][c.rar],to=Math.min(d.max,cur+add);ic=svgIcon(c.id,d.col,32);nm=d.n;ds=d.d;
-    pp=pipsHTML(d.col,d.max,cur,to);   /* r12 SIMPLE-1: no NEW/MAX chip; the pips say it (0 filled = new, all glowing = max) */
-    // r11: the change this pick makes, in the run's own numbers ('Loop damage 40 → 57'), instead of a per-level delta the player has to stack in their head
-    // r12 SIMPLE-1: one number on the card (the first row this pick changes, else the first row); the full rows stay in the pause build sheet
-    const rows=cardPreview(c.id,add,c.rar===1?1.5:1),row=rows.find(([k,a,b])=>a!==b)||rows[0];
-    sv=row?(([k,a,b])=>`<span>${esc(k)} ${a===b||a==='—'?`<b>${esc(b)}</b>`:`${esc(a)} → <b>${esc(b)}</b>`}</span>`)(row):'';
-    // r5 #26: show both levels against the evolution requirement (both maxed); r12 SIMPLE-1: the line renders only when 'hot' (one level away or closer)
-    c.evo=evosOf(c.id).map(ev=>{const pid=ev.a===c.id?ev.b:ev.a,need=id=>CARD_BY[id].max,hot=lv(pid)>=need(pid)-1&&to>=need(c.id)-1;
-      if(!hot)return '';return `<div class="evoline hot">◆ ${esc(CARD_BY[pid].n)} ${lv(pid)}/${need(pid)} + this ${to}/${need(c.id)} → ${evoKnown(ev)?esc(ev.n):'???'}</div>`;}).join('');}
-  const rt=c.kind==='card'?RAR_TXT[c.rar]:'';
-  return `<button class="card r-${RAR[c.rar]} ${i===cardSel?'sel':''}" data-a="pick" data-v="${i}" style="animation-delay:${i*80}ms"><div class="ic">${ic}</div><div class="cb">${c.rar?`<div class="rar">${c.kind==='orb'?'BIG · +2':RAR[c.rar].toUpperCase()+(rt?' · '+rt.toUpperCase():'')}</div>`:''}<div class="nh"><span class="nm">${esc(nm)}</span>${pp}${lvl&&c.kind==='card'?`<span class="lv">${lvl}</span>`:''}</div>${lvl&&c.kind!=='card'?`<div class="lv">${esc(lvl)}</div>`:''}<div class="ds">${esc(ds)}</div>${sv?`<div class="sv">${sv}</div>`:''}${c.evo||''}</div></button>`;}
 // r13 LOOP-2: World 1 level-ups drop power orbs instead of the overlay. No state change, no lift, no countdown; doLevelUp's feedback is kept.
 function nOrbs(){let n=0;for(const o of ORBP)if(o.on&&!o.fx)n++;return n;}
 function orbAdd(id,x,y,big,fx){let s=null;for(const o of ORBP)if(!o.on){s=o;break;}if(!s&&!fx)for(const o of ORBP)if(o.fx){s=o;break;}if(!s)return null;const C=R.core;s.on=true;s.id=id;s.x=x;s.y=y;s.big=!!big;s.fx=!!fx;s.t=0;s.sx=C.x;s.sy=C.y;return s;}
@@ -2519,20 +2454,7 @@ function orbLoop(xs,ys,n){ORB_TK.length=0;let g=0,big=false,sx=0,sy=0;
 // expiry: lowest colour level, then nearest the Core, then ORBS order
 function orbAutoPick(){const C=R.core;let best=null,bl=99,bd=1e18,bi=99;for(const o of ORBP){if(!o.on||o.fx)continue;const l=olv(o.id),dx=o.x-C.x,dy=o.y-C.y,d=dx*dx+dy*dy,i=ORBS.indexOf(ORB_BY[o.id]);
   if(l<bl||(l===bl&&(d<bd||(d===bd&&i<bi)))){best=o;bl=l;bd=d;bi=i;}}return best;}
-function doLevelUp(){R.pendingLv--;R.lvFlash=0.15;const C=R.core;for(let i=0;i<nE;i++){const e=E[i];if(!e.alive||e.orb)continue;const dx=e.x-C.x,dy=e.y-C.y,d=Math.hypot(dx,dy)||1;if(d<150){e.kvx+=dx/d*960;e.kvy+=dy/d*960;}}
-  ring(C.x,C.y,10,150,0.4,TH.white,5);SFX.levelup();buzz(60);interruptInput();curCards=rollCards();cardSel=kbUsed?0:-1;setState('levelup');renderLevelUp();
-  offerBell();}
-function offerBell(){const best=Math.max(...curCards.map(c=>c.rar));if(best>=1&&A.ctx)setTimeout(()=>SFX.rarity(best),240);}   // r5 #43: also after a REROLL
-function renderLevelUp(){show(`<div class="scr dim"><div class="col" style="margin-top:auto;margin-bottom:0"><h2>${R.keepOffer?'KEEPSAKE · a free common':'LEVEL '+(R.level-R.pendingLv)}</h2><div class="cards">${curCards.map(cardHTML).join('')}</div>
-  ${R.rerolls>0&&R.world!==1?`<button class="btn small" data-a="reroll" style="margin-top:12px">REROLL (${R.rerolls})</button>`:''}${finePtr()?'<div class="keyh">tap a card · 1/2/3'+(R.world!==1?' · R reroll':'')+'</div>':''}</div></div>`);}
-// r12 SIMPLE-1: the level-up keyboard hint renders on desktop only (it was hidden by CSS on coarse pointers but still in the DOM)
-function finePtr(){try{return !!(window.matchMedia&&matchMedia('(pointer:fine)').matches);}catch(e){return false;}}
-function pickCard(i){const c=curCards[i];if(!c)return;SFX.click();
-  if(c.kind==='evo')applyEvo(c.id);else if(c.kind==='heal'){R.core.hp=Math.min(R.core.max,R.core.hp+40);}else if(c.kind==='shards'){R.extraShards=(R.extraShards||0)+25;}
-  else if(c.kind==='orb'){orbGain(c.id,c.rar?2:1,'pick');}
-  else addCard(c.id,[1,1,2,3][c.rar],c.rar===1?1.5:1);
-  R.keepOffer=false;if(R.pendingLv>0){doLevelUp();return;}resumeFromOverlay();}
-const COUNTDOWN=2;
+const COUNTDOWN=2;   /* the get-ready countdown after the chest overlay (only __lh.chest opens it); r13 LOOP-5: the level-up overlay is gone */
 const CHEST_MAX_RUN=2,CHEST_LATE_SHARDS=10;   // r12 SIMPLE-4: chests per run (later elites pay CHEST_LATE_SHARDS into the run tally instead)
 function resumeFromOverlay(){show('');lockUI(250);setState('run');if(R){R.lifted=true;R.liftT=0;if(R.started&&!R.over)R.countT=COUNTDOWN;}}
 /* chest */
@@ -2566,7 +2488,7 @@ function chestTick(dt){if(!chestS||state!=='chest')return;const S=chestS;S.t+=dt
   if(!S.done&&S.t>=1.5){S.done=true;S.doneAt=nowMs();if(S.rewards.some(r=>r.evo))SFX.evolution();if(S.n===5||!S.rewards.some(r=>r.evo))SFX.chestResult(S.n===5);const res=document.getElementById('chestRes');if(res)res.innerHTML=S.lines.map(l=>`<div class="rl${l.rar}">${esc(l.t)}</div>`).join('');
     if(S.n===5){const j=document.getElementById('jack');if(j)j.innerHTML='<div class="jack">JACKPOT!</div>';unlockAch('jack');confetti(40);}
     const b=document.getElementById('collectBtn');if(b)b.style.visibility='visible';const ta=document.getElementById('tapany');if(ta)ta.style.visibility='visible';lockUI(300);}}
-function collectChest(){if(!chestS||!chestS.done)return;chestS=null;SFX.click();if(R.pendingLv>0){doLevelUp();return;}resumeFromOverlay();}
+function collectChest(){if(!chestS||!chestS.done)return;chestS=null;SFX.click();resumeFromOverlay();}   /* r13 LOOP-5: a pending level drops its orbs once the run resumes (the advance gate) */
 /* pause */
 function pauseGame(){if(!R||(state!=='run'&&state!=='liftpause'))return;if(R.over){A.suspend();if(state==='liftpause')setState('run');return;}interruptInput();A.suspend();showPause();}
 // r11: rows instead of a bare icon grid. live=true (pause) adds each card's current numbers; the summary shows plain words + impact only
@@ -2806,8 +2728,6 @@ function act(a,v,el){if(state==='title'||a==='start'||a==='retry'||a==='play'||a
   
   case 'reset':if(resetArmed()&&nowMs()-resetArm>=RESET_MIN){const keep=save.settings;save=defSave();save.settings=keep;writeSave(true);resetArm=0;toast('Progress erased');showTitle();}
     else if(!resetArmed()){resetArm=nowMs();lockUI(700);SFX.click();buzz(30);setResetLabel();setTimeout(setResetLabel,RESET_WIN+50);}break;
-  case 'pick':pickCard(+v);break;
-  case 'reroll':if(R.rerolls>0&&R.world!==1){R.rerolls--;curCards=rollCards();cardSel=0;SFX.click();renderLevelUp();offerBell();}break;
   case 'collect':collectChest();break;
   case 'resume':A.resume(()=>SFX.resume());show('');if(R&&R.over){setState('run');}else toLiftPause();lockUI(350);break;
   case 'restart':startRun(R.wireId,{daily:R.daily,stake:R.stake});break;
@@ -2894,7 +2814,6 @@ window.addEventListener('keydown',e=>{const k=e.key;
   switch(state){
     case 'run':case 'liftpause':if(k==='Escape'||k==='p'||k==='P')pauseGame();break;
     case 'pause':if(k==='Escape'||k==='p'||k==='P'||k==='Enter')act('resume');break;
-    case 'levelup':if(k>='1'&&k<='3')pickCard(+k-1);else if(k==='ArrowLeft'||k==='ArrowUp'){cardSel=(cardSel+curCards.length-1)%curCards.length;renderLevelUp();}else if(k==='ArrowRight'||k==='ArrowDown'){cardSel=(cardSel+1)%curCards.length;renderLevelUp();}else if(k==='Enter'||k===' ')pickCard(Math.max(0,cardSel));else if(k==='r'||k==='R')act('reroll');break;
     case 'chest':if(k==='Enter'||k===' ')collectChest();break;
     case 'summary':if(k===' '||k==='Enter'||k==='r'||k==='R')act('retry');else if(k==='Escape')act('title');break;
     case 'title':if(k==='Enter'||k===' ')act('play');break;
@@ -2924,7 +2843,7 @@ function autoQuality(dt,raw){if(Q.force||Q.capped||state!=='run')return;const sp
 function fxTick(dt,raw){if(state==='run'){Q.runT+=dt;if(dt>=0.05&&raw<0.25&&Q.runT>0.5)Q.fxK=Math.max(0.4,Q.fxK*0.75);else Q.fxK=Math.min(1,Q.fxK+0.1*dt);}else Q.runT=0;}
 function frame(){requestAnimationFrame(frame);try{const t=nowMs();let dt=(t-lastT)/1000;lastT=t;const raw=dt;if(dt>0.1)dt=0.1;if(dt<0)dt=0;
   autoQuality(dt,raw);fxTick(dt,raw);Q.fdt+=(Math.min(raw,0.05)-Q.fdt)*0.05;hiHz=Q.fdt<0.0125;if(Q.pendLayout&&state!=='run'){Q.pendLayout=false;layout();}pollPend();
-  if(state!=='run'&&state!=='liftpause'&&state!=='levelup'&&state!=='chest'&&nowMs()-lastInputT>5000&&A.on())A.suspend();   /* r5 #41: idle menus let the audio engine sleep (the next tap wakes it) */
+  if(state!=='run'&&state!=='liftpause'&&state!=='chest'&&nowMs()-lastInputT>5000&&A.on())A.suspend();   /* r5 #41: idle menus let the audio engine sleep (the next tap wakes it) */
   if(testAuto)advance(dt);uiTick(dt);realFx(dt);render(dt);audioFrame(dt);}
   catch(err){console.error('LOOPHOLE frame error:',err);}}
 
@@ -3211,12 +3130,12 @@ if(TEST){const stepF=n=>{for(let i=0;i<n;i++){advance(1/60);uiTick(1/60);realFx(
     get game(){return R;},
     enemies(){return aliveCount();},
     clear(){for(let i=0;i<nE;i++){E[i].alive=false;E[i].dying=0;}nE=0;nB=0;},
-    pick(i){const os=ORBP.filter(o=>o.on&&!o.fx);if(os.length){if(os[i||0])orbTake(os[i||0],'test');return state;}if(state==='levelup'){uiLock=0;pickCard(i||0);}return state;},   // r13 LOOP-2: live orbs first (taken as if looped)
+    pick(i){const os=ORBP.filter(o=>o.on&&!o.fx);if(os.length){if(os[i||0])orbTake(os[i||0],'test');}return state;},   // r13 LOOP-2: take live orb i as if looped (LOOP-5: no card overlay left to pick from)
     chest(n){if(R&&R.started&&(state==='run'||state==='liftpause')){openChest(n);}return state;},
     xp(n){if(R)gainXP(n);return R?R.pendingLv:0;},
     bolt(x,y,vx,vy,kind){if(R)fireBolt(x,y,vx,vy,kind?10:LOB_BOLT_DMG,kind?1:0);},
     goals:()=>nextGoals(3),
-    offer:()=>{const os=ORBP.filter(o=>o.on&&!o.fx).map(o=>o.id);return os.length?os:curCards.map(c=>c.kind==='card'||c.kind==='orb'?c.id:c.kind);},
+    offer:()=>ORBP.filter(o=>o.on&&!o.fx).map(o=>o.id),   // r13: the live orb ids (LOOP-5: no card offers are left)
     ents(){const o=[];for(let i=0;i<nE;i++){const e=E[i];if(e.alive)o.push({type:e.type,tagT:e.tagT,x:e.x,y:e.y,elite:!!e.elite,maxHp:e.maxHp});}return o;},
     summary:()=>lastSummary,
     quality(){return{low:Q.low,force:Q.force,dpr:L.DPR,ss:SS,fxK:Q.fxK,spk:Q.spk,trial:Q.trial?{spiky:Q.trial.spiky,len:Q.trial.len}:null,capped:Q.capped,fdt:Q.fdt,hiHz,atl:atlDone};},
@@ -3247,6 +3166,7 @@ if(TEST){const stepF=n=>{for(let i=0;i<n;i++){advance(1/60);uiTick(1/60);realFx(
     orbSpr:()=>ORB_SPR,   // TEST: the baked orb sprites (flow 146 counts their blits)
     orbHud:()=>ORB_HUD,   // TEST: r13 LOOP-3 the baked strip pip sprites (flow 147 counts their blits)
     orbDrop(){if(!R)return 0;R.pendingLv++;dropOrbs();return nOrbs();},
+    r13:{dead(){const t={doLevelUp:typeof doLevelUp,renderLevelUp:typeof renderLevelUp,cardHTML:typeof cardHTML,pickCard:typeof pickCard,offerBell:typeof offerBell,rollRarity:typeof rollRarity,RAR_TXT:typeof RAR_TXT,LV_ONLY:typeof LV_ONLY,cardPreview:typeof cardPreview,evosOf:typeof evosOf,evoKnown:typeof evoKnown,evoEligible:typeof evoEligible,finePtr:typeof finePtr,rollCards:typeof rollCards,curCards:typeof curCards,cardSel:typeof cardSel};return{fns:Object.keys(t).filter(k=>t[k]!=='undefined'),r:R?['rerolls','tutCards','keepOffer'].filter(k=>k in R):null};}},   // TEST: r13 LOOP-5 which legacy level-up names still exist (flow 150)
     save:()=>save,
   };}
 if(TEST&&window.__lh&&window.__lh.w2&&WSIM.testHooks)Object.assign(window.__lh.w2,WSIM.testHooks());   // WP-A: __lh.w2.spawn/forceEvent/steam/yarnPair/... (own line: tools/balance/patch.js anchors on the line above)
